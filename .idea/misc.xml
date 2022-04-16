@@ -12,6 +12,8 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/custom_input.xml" value="0.148" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_signup.xml" value="0.225" />
       </map>
     </option>
   </component>
