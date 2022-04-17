@@ -60,7 +60,8 @@
         android:layout_below="@+id/editTextPasswordLogin"
         android:layout_centerHorizontal="true"
         android:textSize="19sp"
-        android:background="@drawable/button_styles2"/>
+        android:background="@drawable/button_styles2"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/btnSignUpLogin"
@@ -72,7 +73,8 @@
         android:layout_below="@+id/btnLoginLogin"
         android:layout_centerHorizontal="true"
         android:textSize="19sp"
-        android:background="@drawable/button_style3"/>
+        android:background="@drawable/button_style3"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/txtForgotPassword"

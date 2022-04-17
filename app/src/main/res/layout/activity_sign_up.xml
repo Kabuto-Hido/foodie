@@ -78,6 +78,7 @@
         android:layout_below="@+id/editTextPasswordSignUp"
         android:layout_centerHorizontal="true"
         android:textSize="19sp"
+        android:textStyle="bold"
         android:background="@drawable/button_styles2"/>
 
     <Button
@@ -90,6 +91,7 @@
         android:layout_below="@+id/btnSignUpSignUp"
         android:layout_centerHorizontal="true"
         android:textSize="19sp"
+        android:textStyle="bold"
         android:background="@drawable/button_style3"/>
 
     <ImageView
