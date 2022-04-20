@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:id="@+id/logoImageSignUp"
+        android:contentDescription="logo"
+        android:layout_width="229sp"
+        android:layout_height="206sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:src="@drawable/foodie_icon" />
+
+    <EditText
+        android:id="@+id/editTextUserNameSignUp"
+        android:layout_width="310sp"
+        android:layout_height="58sp"
+        android:autofillHints="emailAddress"
+        android:layout_below="@+id/logoImageSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:ems="10"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
+        android:hint="UserName"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        android:textSize="19sp"
+        android:background="@drawable/custom_input"/>
+
+    <EditText
+        android:id="@+id/editTextEmailAddressSignUp"
+        android:layout_width="310sp"
+        android:layout_height="58sp"
+        android:autofillHints="emailAddress"
+        android:layout_below="@+id/editTextUserNameSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:ems="10"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/black"
+        android:textSize="19sp"
+        android:background="@drawable/custom_input"/>
+
+
+    <EditText
+        android:id="@+id/editTextPasswordSignUp"
+        android:layout_width="310sp"
+        android:layout_height="58sp"
+        android:ems="10"
+        android:autofillHints="password"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
+        android:layout_marginTop="20sp"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editTextEmailAddressSignUp"
+        android:hint="Password"
+        android:textColorHint="@color/black"
+        android:textSize="19sp"
+        android:background="@drawable/custom_input"/>
+
+    <Button
+        android:id="@+id/btnSignUpSignUp"
+        android:layout_width="310sp"
+        android:layout_height="50sp"
+        android:text="SIGN UP"
+        android:layout_marginTop="20sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/editTextPasswordSignUp"
+        android:layout_centerHorizontal="true"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:background="@drawable/button_styles2"/>
+
+    <Button
+        android:id="@+id/btnLoginSignUp"
+        android:layout_width="310sp"
+        android:layout_height="50sp"
+        android:text="LOG IN"
+        android:layout_marginTop="14sp"
+        android:textColor="#241C1C"
+        android:layout_below="@+id/btnSignUpSignUp"
+        android:layout_centerHorizontal="true"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:background="@drawable/button_style3"/>
+
+    <ImageView
+        android:id="@+id/googleIconSignUp"
+        android:layout_width="38sp"
+        android:layout_height="38sp"
+        android:layout_below="@+id/btnLoginSignUp"
+        android:layout_marginStart="130sp"
+        android:layout_marginTop="30sp"
+        android:background="@color/white"
+        android:contentDescription="Icon Google"
+        android:src="@drawable/icon_google"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"/>
+
+
+    <ImageView
+        android:id="@+id/facebookIconSignUp"
+        android:layout_width="40sp"
+        android:layout_height="38sp"
+        android:contentDescription="Icon Facebook"
+        android:layout_marginTop="30sp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="130sp"
+        android:background="@color/white"
+        android:src="@drawable/icon_facebook"
+        android:layout_below="@+id/btnLoginSignUp"/>
+
+</RelativeLayout>

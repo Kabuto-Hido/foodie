@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".HomeActivity">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginStart="15sp"
+        android:layout_marginTop="15sp"
+        android:layout_marginEnd="15sp"
+        android:autofillHints="name"
+        android:background="@drawable/custom_input"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search for shop" />
+
+    <LinearLayout
+        android:id="@+id/linearSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/searchView"
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:id="@+id/textviewPopular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popular"
+            android:textColor="#FF3D00"
+            android:textSize="20sp"
+            android:layout_marginStart="80sp"/>
+
+        <TextView
+            android:id="@+id/textviewTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top"
+            android:textColor="#979797"
+            android:textSize="20sp"
+            android:layout_marginStart="120sp"/>
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gvShop"
+        android:layout_width="match_parent"
+        android:layout_height="540sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:horizontalSpacing="20sp"
+        android:verticalSpacing="30sp"
+        android:layout_below="@+id/linearSearch"
+        android:numColumns="2"
+        android:layout_marginTop="10sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/gvShop"
+        android:layout_marginTop="20sp">
+
+        <ImageView
+            android:id="@+id/icon_active_home_homepage"
+            android:contentDescription="Active Home"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_active_home"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_list_love_homepage"
+            android:contentDescription="Inactive love list"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_heart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_cart_homepage"
+            android:contentDescription="Inactive Cart"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_cart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_more_homepage"
+            android:contentDescription="Inactive more action"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_more"
+            android:layout_marginStart="50sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

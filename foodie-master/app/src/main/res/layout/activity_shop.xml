@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopActivity"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/shopImageDetail"
+        android:contentDescription="Image Shop"
+        android:layout_width="match_parent"
+        android:layout_height="140sp" />
+
+    <LinearLayout
+        android:id="@+id/linearNameShop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/shopImageDetail"
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:id="@+id/textviewShopNameDetail"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#241C1C"
+            android:layout_marginStart="15sp"
+            android:maxLines="2"
+            android:lines="2"
+            android:layout_weight="8"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_toRightOf="@+id/textviewShopNameDetail"
+            android:layout_marginStart="30sp"
+            android:background="#FFE3C9"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            android:src="@drawable/icon_not_favorite"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearShopAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearNameShop"
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FBB816"
+            android:text="Address"
+            android:textSize="16sp"
+            android:layout_marginStart="15sp"/>
+
+        <TextView
+            android:id="@+id/textviewShopAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#241C1C"
+            android:maxLines="2"
+            android:lines="2"
+            android:layout_weight="7"
+            android:layout_marginStart="40sp"
+            android:layout_marginEnd="10sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearShopPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearShopAddress"
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FBB816"
+            android:text="Phone"
+            android:textSize="16sp"
+            android:layout_marginStart="15sp"/>
+
+        <TextView
+            android:id="@+id/textviewShopPhone"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#241C1C"
+            android:layout_weight="7"
+            android:layout_marginStart="55sp"
+            android:layout_marginEnd="10sp"
+            android:textAlignment="textEnd"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearChooseTypeFood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearShopPhone"
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:id="@+id/textviewFoodChoose"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:textColor="#FD4D05"
+            android:text="Foods"
+            android:textSize="17sp"
+            android:layout_weight="1"
+            android:layout_marginStart="15sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/textviewDrinkChoose"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#979797"
+            android:layout_weight="1"
+            android:layout_marginStart="40sp"
+            android:layout_marginEnd="10sp"
+            android:textAlignment="center"
+            android:text="Drinks"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listviewFoodAnDrink"
+        android:layout_width="match_parent"
+        android:layout_height="330sp"
+        android:layout_below="@id/linearChooseTypeFood"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginEnd="10sp"
+        android:dividerHeight="10sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/listviewFoodAnDrink"
+        android:layout_marginTop="20sp">
+
+        <ImageView
+            android:id="@+id/icon_active_home_shopPage"
+            android:contentDescription="Active Home"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_active_home"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_list_love_shopPage"
+            android:contentDescription="Inactive love list"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_heart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_cart_shopPage"
+            android:contentDescription="Inactive Cart"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_cart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_more_shopPage"
+            android:contentDescription="Inactive more action"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_more"
+            android:layout_marginStart="50sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

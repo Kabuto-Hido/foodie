@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/mainImage"
+        android:layout_width="265sp"
+        android:layout_height="250sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150sp"
+        android:src="@drawable/foodie_icon" />
+
+    <Button
+        android:id="@+id/btnGetStart"
+        android:layout_width="320sp"
+        android:layout_height="70sp"
+        android:layout_below="@+id/mainImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160sp"
+        android:background="@drawable/button_style1"
+        android:text="Get Started Now"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"/>
+
+</RelativeLayout>
