@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderCompleteActivity"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/mainImageOrderComplete"
+        android:layout_width="220sp"
+        android:layout_height="180sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:src="@drawable/foodie_icon" />
+
+    <TextView
+        android:id="@+id/txtNotificationOrderComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainImageOrderComplete"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Order Completed!"
+        android:textColor="#FD4D05"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/textviewIdOrderComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNotificationOrderComplete"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Order number: id"
+        android:textColor="#BBBBBB"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/txtLabelPriceOrderDeliverComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewIdOrderComplete"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="180sp"
+        android:text="Order"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textviewOrderPriceDeliverComplete"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewIdOrderComplete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="180sp"
+        android:layout_marginEnd="30sp"
+        android:text="32,000đ"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/txtLabelPriceDeliverDeliverComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLabelPriceOrderDeliverComplete"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:text="Delivery"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textviewDeliverPriceDeliverComplete"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewOrderPriceDeliverComplete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30sp"
+        android:text="10,000đ"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/txtLabelTotalPriceDeliverComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLabelPriceDeliverDeliverComplete"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textviewTotalPriceDeliverComplete"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewDeliverPriceDeliverComplete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30sp"
+        android:text="42,000đ"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnContinueShopping"
+        android:layout_width="320sp"
+        android:layout_height="70sp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_styles2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50sp"
+        android:text="Continue Shopping"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

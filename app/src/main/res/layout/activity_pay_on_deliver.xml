@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PayOnDeliverActivity"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:id="@+id/linearDelivery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageBackPageDeliver"
+            android:contentDescription="btn back"
+            android:layout_width="45sp"
+            android:layout_height="30sp"
+            android:layout_marginStart="25sp"
+            android:src="@drawable/icon_btn_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50sp"
+            android:text="Select Method"
+            android:textColor="#241C1C"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtLabelDeliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearDelivery"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="34dp"
+        android:text="Delivery"
+        android:textColor="#FD4D05"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/linearAddressDeliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/txtLabelDeliver">
+
+        <EditText
+            android:id="@+id/editTextAddressDeliver"
+            android:layout_width="310sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="28sp"
+            android:layout_marginTop="10sp"
+            android:textSize="20sp"
+            android:text="address"
+            android:autofillHints="name"
+            android:inputType="text"
+            android:maxLines="2"
+            android:lines="2"/>
+
+        <RadioButton
+            android:id="@+id/radioBtn_Deliver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyRadioButton" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnChangeAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40sp"
+        android:text="Change"
+        android:textSize="17sp"
+        android:textColor="#979797"
+        android:textAllCaps="false"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_below="@+id/linearAddressDeliver"/>
+
+    <LinearLayout
+        android:id="@+id/linearAddressPreOrder"
+        android:layout_width="393sp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/btnChangeAddress">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearAddressDeliver"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:text="Pre Order"
+            android:textColor="#FD4D05"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtn_PreOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyRadioButton"
+            android:layout_gravity="center"
+            android:layout_marginStart="234sp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnContinuePageCart"
+        android:layout_width="280sp"
+        android:layout_height="60sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100sp"
+        android:background="@drawable/button_styles2"
+        android:text="Continue"
+        android:textColor="#EFEAEA"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/txtLabelPriceOrderDeliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearAddressPreOrder"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="200sp"
+        android:text="Order"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textviewOrderPriceDeliver"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearAddressPreOrder"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="200sp"
+        android:layout_marginEnd="30sp"
+        android:text="32,000đ"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/txtLabelPriceDeliverDeliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLabelPriceOrderDeliver"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:text="Delivery"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textviewDeliverPriceDeliver"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewOrderPriceDeliver"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30sp"
+        android:text="10,000đ"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/txtLabelTotalPriceDeliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLabelPriceDeliverDeliver"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textviewTotalPriceDeliver"
+        android:layout_width="80sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewDeliverPriceDeliver"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30sp"
+        android:text="42,000đ"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20sp">
+
+        <ImageView
+            android:id="@+id/icon_inactive_home_DeliverPage"
+            android:contentDescription="Inactive Home"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_home"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_list_love_DeliverPage"
+            android:contentDescription="Inactive love list"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_heart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_active_cart_DeliverPage"
+            android:contentDescription="Active Cart"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_active_cart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_more_DeliverPage"
+            android:contentDescription="Inactive more action"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_more"
+            android:layout_marginStart="50sp"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

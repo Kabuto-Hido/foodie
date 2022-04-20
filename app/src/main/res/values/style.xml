@@ -24,4 +24,9 @@
 
         <item name="android:colorForeground">#42221f1f</item>
     </style>
+
+    <style name="MyRadioButton" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">#FD4D05</item>
+        <item name="colorControlActivated">#FD4D05</item>
+    </style>
 </resources>

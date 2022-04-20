@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodie">
         <activity
+            android:name=".OrderCompleteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayOnDeliverActivity"
+            android:exported="false" />
+        <activity
             android:name=".MorePageActivity"
             android:exported="false" />
         <activity
