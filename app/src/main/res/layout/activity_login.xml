@@ -17,18 +17,18 @@
         android:src="@drawable/foodie_icon" />
 
     <EditText
-        android:id="@+id/editTextEmailAddressLogin"
+        android:id="@+id/editTextUsernameLogin"
         android:layout_width="310sp"
         android:layout_height="58sp"
-        android:autofillHints="emailAddress"
+        android:autofillHints="username"
         android:layout_below="@+id/logoImageLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
         android:ems="10"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:hint="Username"
+        android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="19sp"
         android:background="@drawable/custom_input"/>
@@ -44,7 +44,7 @@
         android:layout_marginTop="20sp"
         android:inputType="textPassword"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/editTextEmailAddressLogin"
+        android:layout_below="@+id/editTextUsernameLogin"
         android:hint="Password"
         android:textColorHint="@color/black"
         android:textSize="19sp"

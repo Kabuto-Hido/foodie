@@ -10,7 +10,12 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/button_style1.xml" value="0.148" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/button_style3.xml" value="0.148" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/button_styles2.xml" value="0.148" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/custom_image_profile.xml" value="0.161" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/custom_input.xml" value="0.148" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/icon_btn_back.xml" value="0.198" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/icon_btn_next.xml" value="0.198" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/icon_login.xml" value="0.198" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/icon_logout.xml" value="0.198" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/round_corner_item_gridview.xml" value="0.148" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_cart.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_change_password.xml" value="0.33" />
@@ -18,7 +23,9 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_more_page.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_product_detail.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_shop.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_signup.xml" value="0.225" />

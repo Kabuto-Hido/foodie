@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodie">
         <activity
+            android:name=".MorePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity

@@ -14,6 +14,15 @@
         android:layout_height="180sp"
         android:scaleType="fitXY"/>
 
+    <ImageView
+        android:id="@+id/imageBackPageProductDetail"
+        android:contentDescription="btn back"
+        android:layout_width="45sp"
+        android:layout_height="30sp"
+        android:src="@drawable/icon_btn_back"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="20sp"/>
+
     <TextView
         android:id="@+id/textviewNameProduct"
         android:layout_width="match_parent"

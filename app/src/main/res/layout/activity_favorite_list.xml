@@ -14,15 +14,12 @@
         android:layout_marginTop="10sp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnBackPageFavorite"
-            style="@android:style/Widget.Button.Small"
-            android:layout_width="50sp"
-            android:layout_height="35sp"
-            android:layout_marginStart="25sp"
-            android:background="@color/white"
-            android:text="<"
-            android:textSize="30sp" />
+        <ImageView
+            android:id="@+id/imageBackPageFavorite"
+            android:layout_width="45sp"
+            android:layout_height="30sp"
+            android:src="@drawable/icon_btn_back"
+            android:layout_marginStart="25sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +61,7 @@
         android:layout_marginTop="20sp">
 
         <ImageView
-            android:id="@+id/icon_active_home_FavoritePage"
+            android:id="@+id/icon_inactive_home_FavoritePage"
             android:contentDescription="Inactive Home"
             android:layout_width="40sp"
             android:layout_height="40sp"
@@ -72,7 +69,7 @@
             android:layout_marginStart="50sp"/>
 
         <ImageView
-            android:id="@+id/icon_inactive_list_love_FavoritePage"
+            android:id="@+id/icon_active_list_love_FavoritePage"
             android:contentDescription="Active love list"
             android:layout_width="40sp"
             android:layout_height="40sp"

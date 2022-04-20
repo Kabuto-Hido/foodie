@@ -63,7 +63,7 @@
         android:layout_marginTop="20sp">
 
         <ImageView
-            android:id="@+id/icon_active_home_CartPage"
+            android:id="@+id/icon_inactive_home_CartPage"
             android:contentDescription="Inactive Home"
             android:layout_width="40sp"
             android:layout_height="40sp"
@@ -79,7 +79,7 @@
             android:layout_marginStart="50sp"/>
 
         <ImageView
-            android:id="@+id/icon_inactive_cart_CartPage"
+            android:id="@+id/icon_active_cart_CartPage"
             android:contentDescription="Active Cart"
             android:layout_width="40sp"
             android:layout_height="40sp"

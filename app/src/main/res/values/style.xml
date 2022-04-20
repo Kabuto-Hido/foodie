@@ -11,4 +11,17 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">14sp</item>
     </style>
+
+    <style name="customImageProfile" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40sp</item>
+    </style>
+
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">#FD4D05</item>
+
+        <item name="colorSwitchThumbNormal">#000000</item>
+
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
 </resources>

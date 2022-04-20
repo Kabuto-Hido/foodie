@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MorePageActivity"
+    android:background="@drawable/background">
+    
+    <ImageView
+        android:id="@+id/imageBackPageMorePage"
+        android:contentDescription="btn back"
+        android:layout_width="45sp"
+        android:layout_height="30sp"
+        android:src="@drawable/icon_btn_back"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="20sp"/>
+
+    <ImageView
+        android:id="@+id/logoImageChangePassword"
+        android:layout_width="180sp"
+        android:layout_height="166sp"
+        android:layout_below="@+id/imageBackPageMorePage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:contentDescription="logo"
+        android:src="@drawable/foodie_icon" />
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logoImageChangePassword"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="30sp"
+        android:textAllCaps="false"
+        android:text="Edit Profile"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:background="?android:attr/selectableItemBackground"
+        app:drawableEndCompat="@drawable/icon_btn_next"/>
+
+    <LinearLayout
+        android:id="@+id/linearPushNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/btnEditProfile"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="30sp"
+        android:layout_marginEnd="30sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:textColor="#000000"
+            android:text="Push Notification"
+            android:textStyle="bold"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/SCBSwitch"
+            android:checked="false"
+            android:layout_marginStart="140sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearPushNotification"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="30sp"
+        android:textAllCaps="false"
+        android:text="Change Password"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:background="?android:attr/selectableItemBackground"
+        app:drawableEndCompat="@drawable/icon_btn_next"/>
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnChangePassword"
+        android:layout_marginTop="40sp"
+        android:textAllCaps="false"
+        android:text="Log out"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="textStart"
+        android:textColor="#E31313"
+        android:textSize="20sp"
+        android:background="?android:attr/selectableItemBackground"
+        app:drawableEndCompat="@drawable/icon_logout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40sp">
+
+        <ImageView
+            android:id="@+id/icon_inactive_home_MorePage"
+            android:contentDescription="Inactive Home"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_home"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_list_love_MorePage"
+            android:contentDescription="Inactive love list"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_heart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_inactive_cart_MorePage"
+            android:contentDescription="Inactive Cart"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_inactive_cart"
+            android:layout_marginStart="50sp"/>
+
+        <ImageView
+            android:id="@+id/icon_active_more_MorePage"
+            android:contentDescription="Active more action"
+            android:layout_width="45sp"
+            android:layout_height="40sp"
+            android:src="@drawable/icon_active_more"
+            android:layout_marginStart="50sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
