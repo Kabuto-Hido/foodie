@@ -100,44 +100,4 @@
         android:textSize="20sp"
         app:drawableEndCompat="@drawable/icon_logout" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40sp">
-
-        <ImageView
-            android:id="@+id/icon_inactive_home_MorePage"
-            android:contentDescription="Inactive Home"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_inactive_home"
-            android:layout_marginStart="50sp"/>
-
-        <ImageView
-            android:id="@+id/icon_inactive_list_love_MorePage"
-            android:contentDescription="Inactive love list"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_inactive_heart"
-            android:layout_marginStart="50sp"/>
-
-        <ImageView
-            android:id="@+id/icon_inactive_cart_MorePage"
-            android:contentDescription="Inactive Cart"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_inactive_cart"
-            android:layout_marginStart="50sp"/>
-
-        <ImageView
-            android:id="@+id/icon_active_more_MorePage"
-            android:contentDescription="Active more action"
-            android:layout_width="45sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_active_more"
-            android:layout_marginStart="50sp"/>
-    </LinearLayout>
-
 </RelativeLayout>

@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodie">
         <activity
+            android:name=".DrinkManageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FoodManageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrderCompleteActivity"
             android:exported="false" />
         <activity

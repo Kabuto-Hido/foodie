@@ -28,11 +28,11 @@
         android:layout_width="30sp"
         android:layout_height="30sp"
         android:layout_below="@id/shopImage"
+        android:layout_marginStart="20sp"
         android:layout_marginTop="30sp"
         android:layout_toRightOf="@+id/textViewShopName"
-        android:layout_marginStart="20sp"
         android:background="#FFE3C9"
-        app:shapeAppearanceOverlay="@style/roundImageView"
-        android:src="@drawable/icon_not_favorite"/>
+        android:src="@drawable/icon_not_favorite"
+        app:shapeAppearanceOverlay="@style/roundImageView" />
 
 </RelativeLayout>
