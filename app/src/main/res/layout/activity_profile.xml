@@ -55,16 +55,17 @@
 
     <EditText
         android:id="@+id/editTextUserNameEditProfile"
-        android:layout_width="350sp"
+        android:layout_width="match_parent"
         android:layout_height="44sp"
         android:layout_below="@+id/txtUsername"
-        android:layout_marginTop="20sp"
         android:layout_marginStart="30sp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:background="@drawable/border_input"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="30sp"
         android:autofillHints="password"
-        android:inputType="text"/>
+        android:background="@drawable/border_input"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtEmail"
@@ -79,16 +80,17 @@
 
     <EditText
         android:id="@+id/editTextEmailEditProfile"
-        android:layout_width="350sp"
+        android:layout_width="match_parent"
         android:layout_height="44sp"
         android:layout_below="@+id/txtEmail"
         android:layout_marginStart="30sp"
+        android:layout_marginEnd="30sp"
         android:layout_marginTop="20sp"
         android:autofillHints="password"
         android:background="@drawable/border_input"
+        android:inputType="textEmailAddress"
         android:textColor="#000000"
-        android:textSize="16sp"
-        android:inputType="textEmailAddress"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtPhoneNumber"
@@ -103,16 +105,17 @@
 
     <EditText
         android:id="@+id/editTextPhoneNumberEditProfile"
-        android:layout_width="350sp"
+        android:layout_width="match_parent"
         android:layout_height="44sp"
         android:layout_below="@+id/txtPhoneNumber"
         android:layout_marginStart="30sp"
+        android:layout_marginEnd="30sp"
         android:layout_marginTop="20sp"
         android:autofillHints="password"
         android:background="@drawable/border_input"
+        android:inputType="phone"
         android:textColor="#000000"
-        android:textSize="16sp"
-        android:inputType="phone"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtAddress"
@@ -127,16 +130,17 @@
 
     <EditText
         android:id="@+id/editTextAddressEditProfile"
-        android:layout_width="350sp"
+        android:layout_width="match_parent"
         android:layout_height="44sp"
         android:layout_below="@+id/txtAddress"
         android:layout_marginStart="30sp"
+        android:layout_marginEnd="30sp"
         android:layout_marginTop="20sp"
         android:autofillHints="name"
         android:background="@drawable/border_input"
+        android:inputType="text"
         android:textColor="#000000"
-        android:textSize="16sp"
-        android:inputType="text"/>
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnContinuePageCart"

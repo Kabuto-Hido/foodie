@@ -16,12 +16,12 @@
 
     <ImageView
         android:id="@+id/imageBackPageProductDetail"
-        android:contentDescription="btn back"
         android:layout_width="45sp"
         android:layout_height="30sp"
-        android:src="@drawable/icon_btn_back"
         android:layout_marginStart="25sp"
-        android:layout_marginTop="20sp"/>
+        android:layout_marginTop="20sp"
+        android:contentDescription="btn back"
+        android:src="@drawable/icon_btn_back" />
 
     <TextView
         android:id="@+id/textviewNameProduct"
