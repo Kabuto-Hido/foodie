@@ -20,18 +20,18 @@
         android:id="@+id/editTextUsernameLogin"
         android:layout_width="310sp"
         android:layout_height="58sp"
-        android:autofillHints="username"
         android:layout_below="@+id/logoImageLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
+        android:autofillHints="username"
+        android:background="@drawable/custom_input"
         android:ems="10"
-        android:paddingStart="10sp"
-        android:paddingEnd="10sp"
         android:hint="Username"
         android:inputType="text"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
         android:textColorHint="@color/black"
-        android:textSize="19sp"
-        android:background="@drawable/custom_input"/>
+        android:textSize="19sp" />
 
     <EditText
         android:id="@+id/editTextPasswordLogin"
@@ -54,63 +54,42 @@
         android:id="@+id/btnLoginLogin"
         android:layout_width="310sp"
         android:layout_height="50sp"
-        android:text="LOG IN"
-        android:layout_marginTop="20sp"
-        android:textColor="@color/white"
         android:layout_below="@+id/editTextPasswordLogin"
         android:layout_centerHorizontal="true"
-        android:textSize="19sp"
+        android:layout_marginTop="40sp"
         android:background="@drawable/button_styles2"
-        android:textStyle="bold"/>
+        android:text="LOG IN"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnSignUpLogin"
         android:layout_width="310sp"
         android:layout_height="50sp"
-        android:text="SIGN UP"
-        android:layout_marginTop="14sp"
-        android:textColor="#241C1C"
         android:layout_below="@+id/btnLoginLogin"
         android:layout_centerHorizontal="true"
-        android:textSize="19sp"
-        android:background="@drawable/button_style3"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/txtForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnSignUpLogin"
-        android:layout_centerHorizontal="true"
-        android:text="Forgot Password?"
-        android:textColor="#241C1C"
         android:layout_marginTop="14sp"
-        android:textSize="16sp"/>
+        android:background="@drawable/button_style3"
+        android:text="SIGN UP"
+        android:textColor="#241C1C"
+        android:textSize="19sp"
+        android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/googleIconLogin"
-        android:layout_width="38sp"
-        android:layout_height="38sp"
-        android:layout_below="@+id/txtForgotPassword"
-        android:layout_marginStart="130sp"
-        android:layout_marginTop="30sp"
-        android:background="@color/white"
-        android:contentDescription="Icon Google"
-        android:src="@drawable/icon_google"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/white"/>
+    <Button
+        android:id="@+id/btnForgotPasswordLogin"
+        style="@android:style/Widget.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="24sp"
+        android:layout_below="@+id/btnSignUpLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="Forgot Password?"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#241C1C"
+        android:textSize="14sp" />
 
-
-    <ImageView
-        android:id="@+id/facebookIconLogin"
-        android:layout_width="40sp"
-        android:layout_height="38sp"
-        android:contentDescription="Icon Facebook"
-        android:layout_marginTop="30sp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="130sp"
-        android:background="@color/white"
-        android:src="@drawable/icon_facebook"
-        android:layout_below="@+id/txtForgotPassword"/>
 
 </RelativeLayout>

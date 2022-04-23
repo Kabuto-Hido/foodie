@@ -21,7 +21,7 @@
             android:layout_height="35sp"
             android:layout_marginStart="25sp"
             android:background="@color/white"
-            android:text="<"
+            android:text="Back"
             android:textSize="30sp" />
 
         <TextView

@@ -94,30 +94,5 @@
         android:textStyle="bold"
         android:background="@drawable/button_style3"/>
 
-    <ImageView
-        android:id="@+id/googleIconSignUp"
-        android:layout_width="38sp"
-        android:layout_height="38sp"
-        android:layout_below="@+id/btnLoginSignUp"
-        android:layout_marginStart="130sp"
-        android:layout_marginTop="30sp"
-        android:background="@color/white"
-        android:contentDescription="Icon Google"
-        android:src="@drawable/icon_google"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/white"/>
-
-
-    <ImageView
-        android:id="@+id/facebookIconSignUp"
-        android:layout_width="40sp"
-        android:layout_height="38sp"
-        android:contentDescription="Icon Facebook"
-        android:layout_marginTop="30sp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="130sp"
-        android:background="@color/white"
-        android:src="@drawable/icon_facebook"
-        android:layout_below="@+id/btnLoginSignUp"/>
 
 </RelativeLayout>
