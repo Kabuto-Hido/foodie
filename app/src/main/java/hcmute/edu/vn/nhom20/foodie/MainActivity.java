@@ -21,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
         db = new Database(this,"foodie.sqlite",null,1);
 
+        //table Account
         db.QueryData("CREATE TABLE IF NOT EXISTS Account(Username VARCHAR(200) PRIMARY KEY," +
                 " Password VARCHAR(200) NOT NULL,Phone VARCHAR(12), Email VARCHAR(200) NOT NULL UNIQUE," +
                 "Address NVARCHAR(200), Image BLOB, Role VARCHAR(30) NOT NULL)");
 
+        //insert admin
         //db.InsertAccount("Kabuto","123456",null,"ngobuituananh@gmail.com",null,null,"Admin");
 
         btnGetStart.setOnClickListener(new View.OnClickListener() {
