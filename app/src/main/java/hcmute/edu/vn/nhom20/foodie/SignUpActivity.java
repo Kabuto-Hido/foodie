@@ -42,18 +42,19 @@ public class SignUpActivity extends AppCompatActivity {
                 if(username.equals("") || email.equals("") || password.equals("")){
                     Toast.makeText(SignUpActivity.this,"You must fill all fields",Toast.LENGTH_SHORT).show();
                 }
-                else if(checkUsername(username) == false){            //username have in database
+                else if(!checkUsername(username)){            //username have in database
                     Toast.makeText(SignUpActivity.this,"Username already exist",Toast.LENGTH_SHORT).show();
-                }else if(checkPassword(password) == false){         //password haven't satisfy the condition
+                }else if(!checkPassword(password)){         //password haven't satisfy the condition
                     Toast.makeText(SignUpActivity.this,"Password have at least eight characters " +
                             "and consists of only letters and digits",Toast.LENGTH_LONG).show();
-                }else if(checkEmail(email) == false){
+                }else if(!checkEmail(email)){
                     Toast.makeText(SignUpActivity.this,"Email already exist",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     MainActivity.db.InsertAccount(username,password,null,email,null,null,"Customer");
                     Toast.makeText(SignUpActivity.this,"Succeed",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                    finish();
                 }
             }
         });
@@ -61,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean checkUsername(String username){
         Cursor accountData = MainActivity.db.GetData("SELECT * FROM Account WHERE Username = '"
                 + username +"'");
-        if(accountData.moveToFirst() == false){ //empty
+        if(!accountData.moveToFirst()){ //empty
             return true;
         }
         return false;
@@ -89,7 +90,7 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean checkEmail(String email){
         Cursor accountData = MainActivity.db.GetData("SELECT * FROM Account WHERE Email = '"
                 + email +"'");
-        if(accountData.moveToFirst() == false){ //empty
+        if(!accountData.moveToFirst()){ //empty
             return true;
         }
         return false;

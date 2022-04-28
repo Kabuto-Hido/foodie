@@ -4,60 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFoodActivity"
+    tools:context=".EditShopActivity"
     android:background="@drawable/background">
 
     <ImageView
-        android:id="@+id/btnUploadImageFood"
+        android:id="@+id/btnUploadImageEditShop"
         android:layout_width="match_parent"
         android:layout_height="160sp"
-        android:contentDescription="Upload image food"
+        android:contentDescription="Upload image shop"
         android:scaleType="centerInside"
         android:src="@drawable/icon_upload" />
 
     <ImageView
-        android:id="@+id/btnBackAddFoodPage"
+        android:id="@+id/btnBackEditShopPage"
         android:layout_width="45sp"
         android:layout_height="32sp"
-        android:contentDescription="btn back"
-        android:src="@drawable/icon_btn_back"
+        android:layout_marginStart="25sp"
         android:layout_marginTop="15sp"
-        android:layout_marginStart="25sp"/>
+        android:contentDescription="btn back"
+        android:src="@drawable/icon_btn_back" />
 
     <TextView
-        android:id="@+id/txtLabelAddFood"
+        android:id="@+id/txtLabelEditShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnUploadImageFood"
-        android:layout_marginTop="10sp"
+        android:layout_below="@+id/btnUploadImageEditShop"
         android:layout_marginStart="20sp"
-        android:text="Add a new food"
+        android:layout_marginTop="10sp"
+        android:text="Edit food"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtLabelFoodName"
+        android:id="@+id/txtLabelEditShopName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtLabelAddFood"
+        android:layout_below="@+id/txtLabelEditShop"
         android:layout_marginStart="30sp"
-        android:layout_marginTop="30sp"
-        android:text="Food name"
+        android:layout_marginTop="15sp"
+        android:text="Name"
         android:textColor="#000000"
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextFoodName"
+        android:id="@+id/editTextEditShopName"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/txtLabelFoodName"
+        android:layout_below="@+id/txtLabelEditShopName"
         android:layout_marginStart="30sp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="10sp"
         android:layout_marginEnd="30sp"
-        android:autofillHints="password"
+        android:autofillHints=""
         android:background="@drawable/border_input"
-        android:hint="Name food you want to add"
+        android:hint="Name shop you want to edit"
+        android:enabled="false"
         android:inputType="text"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
@@ -65,28 +66,56 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/txtLabelFoodPrice"
+        android:id="@+id/txtLabelEditShopAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextFoodName"
+        android:layout_below="@+id/editTextEditShopName"
         android:layout_marginStart="30sp"
-        android:layout_marginTop="30sp"
-        android:text="Food price"
+        android:layout_marginTop="15sp"
+        android:text="Address"
         android:textColor="#000000"
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextFoodPrice"
+        android:id="@+id/editTextEditShopAddress"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/txtLabelFoodPrice"
+        android:layout_below="@+id/txtLabelEditShopAddress"
         android:layout_marginStart="30sp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="10sp"
         android:layout_marginEnd="30sp"
-        android:autofillHints="password"
+        android:autofillHints=""
         android:background="@drawable/border_input"
-        android:hint="Price"
+        android:hint="Address"
         android:inputType="text"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtLabelEditShopPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEditShopAddress"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="15sp"
+        android:text="Phone Number"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextEditShopPhone"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_below="@+id/txtLabelEditShopPhone"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginEnd="30sp"
+        android:autofillHints=""
+        android:background="@drawable/border_input"
+        android:hint="Phone"
+        android:inputType="phone"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:textColor="@color/black"
@@ -100,7 +129,7 @@
         android:layout_marginBottom="72sp">
 
         <Button
-            android:id="@+id/btnConfirmAddFood"
+            android:id="@+id/btnConfirmEditShop"
             android:layout_width="150sp"
             android:layout_height="50sp"
             android:text="Confirm"
@@ -111,7 +140,7 @@
             android:background="@drawable/button_styles2"/>
 
         <Button
-            android:id="@+id/btnCancelAddFood"
+            android:id="@+id/btnCancelEditShop"
             android:layout_width="150sp"
             android:layout_height="50sp"
             android:text="Cancel"

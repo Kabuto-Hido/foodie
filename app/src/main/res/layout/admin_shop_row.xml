@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textviewAdminShopName"
-        android:layout_width="230sp"
+    <LinearLayout
+        android:id="@+id/linearAdminShopRow"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shop 1"
-        android:textSize="20sp"
-        android:lines="2"
-        android:maxLines="2"
-        android:textColor="#C50D11"
-        android:textStyle="bold"
-        android:layout_marginStart="20sp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textviewAdminShopName"
+            android:layout_width="230sp"
+            android:layout_height="wrap_content"
+            android:text="Shop 1"
+            android:textSize="20sp"
+            android:lines="2"
+            android:maxLines="2"
+            android:textColor="#C50D11"
+            android:textStyle="bold"
+            android:layout_marginStart="20sp"/>
+
+        <ImageView
+            android:id="@+id/btnRemoveShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25sp"
+            android:src="@drawable/icon_delete"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/textviewAdminQuantityDish"
         android:layout_width="70sp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/linearAdminShopRow"
         android:text="10 Dish"
         android:textSize="16sp"
+        android:layout_marginTop="5sp"
         android:layout_marginStart="20sp"/>
 
-</LinearLayout>
+</RelativeLayout>

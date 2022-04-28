@@ -10,29 +10,29 @@
         android:layout_width="82sp"
         android:layout_height="72sp"
         android:scaleType="fitXY"
-        app:shapeAppearanceOverlay="@style/roundImageView"/>
+        app:shapeAppearanceOverlay="@style/roundImageView" />
 
     <TextView
         android:id="@+id/textviewFoodOrDrinkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="10sp"
         android:layout_toRightOf="@+id/imageFoodOrDrink"
         android:text="Name food or drink"
-        android:textSize="20sp"
         android:textColor="#241C1C"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="10sp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textviewFoodOrDrinkPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textviewFoodOrDrinkName"
         android:layout_marginStart="20sp"
         android:layout_marginTop="8sp"
-        android:layout_below="@+id/textviewFoodOrDrinkName"
         android:layout_toRightOf="@+id/imageFoodOrDrink"
-        android:textSize="14sp"
+        android:text="Price food or drink"
         android:textColor="#FFD863"
-        android:text="Price food or drink"/>
+        android:textSize="14sp" />
 
 </RelativeLayout>
