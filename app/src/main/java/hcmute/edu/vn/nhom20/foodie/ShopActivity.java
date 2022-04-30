@@ -102,11 +102,8 @@ public class ShopActivity extends AppCompatActivity {
         icon_active_home_shopPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ShopActivity.this, ShopActivity.class);
+                startActivity(new Intent(ShopActivity.this, HomeActivity.class));
                 finish();
-                overridePendingTransition(0, 0);
-                startActivity(i);
-                overridePendingTransition(0, 0);
             }
         });
 

@@ -11,7 +11,7 @@
 
         <TextView
             android:id="@+id/textviewAdminShopName"
-            android:layout_width="230sp"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:text="Shop 1"
             android:textSize="20sp"
@@ -22,11 +22,20 @@
             android:layout_marginStart="20sp"/>
 
         <ImageView
+            android:id="@+id/btnEditShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:src="@drawable/icon_edit"/>
+
+        <ImageView
             android:id="@+id/btnRemoveShop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25sp"
+            android:layout_marginStart="10sp"
             android:src="@drawable/icon_delete"/>
+
+
     </LinearLayout>
 
 

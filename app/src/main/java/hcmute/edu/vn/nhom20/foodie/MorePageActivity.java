@@ -21,10 +21,20 @@ public class MorePageActivity extends AppCompatActivity {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences myPrefs = getSharedPreferences("dataLogin", MODE_PRIVATE);
-                SharedPreferences.Editor editor = myPrefs.edit();
-                editor.clear();
-                editor.commit();
+                SharedPreferences myPrefs1 = getSharedPreferences("dataLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = myPrefs1.edit();
+                editor1.clear();
+                editor1.commit();
+
+                SharedPreferences myPrefs2 = getSharedPreferences("dataShop", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = myPrefs2.edit();
+                editor2.clear();
+                editor2.commit();
+
+                SharedPreferences myPrefs3 = getSharedPreferences("dataFood", MODE_PRIVATE);
+                SharedPreferences.Editor editor3 = myPrefs3.edit();
+                editor3.clear();
+                editor3.commit();
 
                 Intent intent = new Intent(MorePageActivity.this,
                         LoginActivity.class);

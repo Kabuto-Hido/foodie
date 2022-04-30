@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class AdminHomeActivity extends AppCompatActivity {
     TextView AdminWelcome;
     ListView listviewShop;
-    Button btnAddShop,btnEditShop;
+    Button btnAddShop,btnDetailShop;
     ArrayList<Shop> shopList;
     AdminShopAdapter adapter;
     ImageView icon_active_home_adminHomepage,icon_inactive_more_adminHomepage;
@@ -34,7 +34,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         AdminWelcome = (TextView) findViewById(R.id.AdminWelcome);
         listviewShop = (ListView) findViewById(R.id.listviewShop);
         btnAddShop = (Button) findViewById(R.id.btnAddShop);
-        btnEditShop = (Button) findViewById(R.id.btnEditShop);
+        btnDetailShop = (Button) findViewById(R.id.btnDetailShop);
         icon_active_home_adminHomepage = (ImageView) findViewById(R.id.icon_active_home_adminHomepage);
         icon_inactive_more_adminHomepage = (ImageView) findViewById(R.id.icon_inactive_more_adminHomepage);
 
@@ -63,6 +63,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminHomeActivity.this, MorePageActivity.class));
+                finish();
             }
         });
 
@@ -71,8 +72,9 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 SharedPreferences sharedPref = getSharedPreferences("dataShop",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("editShopName",shopList.get(i).getName());
+                editor.putString("detailShopName",shopList.get(i).getName());
                 editor.commit();
+
             }
         });
 
@@ -81,16 +83,18 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(AdminHomeActivity.this, AddShopActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
-        btnEditShop.setOnClickListener(new View.OnClickListener() {
+        btnDetailShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i1 = new Intent(AdminHomeActivity.this,EditShopActivity.class);
-                startActivity(i1);
+                startActivity(new Intent(AdminHomeActivity.this, FoodManageActivity.class));
+                finish();
             }
         });
+
     }
 
     private void getDataShop(){
@@ -126,5 +130,12 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
         dialogDelete.show();
+    }
+
+    public void EditShop(String shopName){
+        Intent i1 = new Intent(AdminHomeActivity.this,EditShopActivity.class);
+        i1.putExtra("editShopName",shopName);
+        startActivity(i1);
+        finish();
     }
 }

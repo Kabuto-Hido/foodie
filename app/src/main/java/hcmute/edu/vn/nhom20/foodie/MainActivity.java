@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
 //                22000F,10,null,"Drink","Tuna Happy");
 
         //insert admin
-        db.QueryData("DELETE FROM Account WHERE Username = 'Kabuto'");
-        db.InsertAccount("Kabuto","123456",null,"ngobuituananh@gmail.com",null,null,"Admin");
-        db.QueryData("DELETE FROM Account WHERE Username = 'Tuan Anh'");
-        db.InsertAccount("Tuan Anh","tuananh123",null,"tuananh@gmail.com",null,null,"Customer");
+//        db.QueryData("DELETE FROM Account WHERE Username = 'Kabuto'");
+//        db.InsertAccount("Kabuto","123456",null,"ngobuituananh@gmail.com",null,null,"Admin");
+//        db.QueryData("DELETE FROM Account WHERE Username = 'Tuan Anh'");
+//        db.InsertAccount("Tuan Anh","tuananh123",null,"tuananh@gmail.com",null,null,"Customer");
 
         btnGetStart.setOnClickListener(new View.OnClickListener() {
             @Override

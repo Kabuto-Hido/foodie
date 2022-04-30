@@ -46,7 +46,7 @@ public class AdminShopAdapter extends BaseAdapter {
 
     private class ViewHolder{
         TextView textviewAdminShopName, textviewAdminQuantityDish;
-        ImageView btnRemoveShop;
+        ImageView btnRemoveShop,btnEditShop;
     }
 
     @Override
@@ -60,6 +60,7 @@ public class AdminShopAdapter extends BaseAdapter {
             holder.textviewAdminQuantityDish = (TextView) view.findViewById(R.id.textviewAdminQuantityDish);
             holder.textviewAdminShopName = (TextView) view.findViewById(R.id.textviewAdminShopName);
             holder.btnRemoveShop = (ImageView) view.findViewById(R.id.btnRemoveShop);
+            holder.btnEditShop = (ImageView) view.findViewById(R.id.btnEditShop);
 
             view.setTag(holder);
         }
@@ -84,6 +85,12 @@ public class AdminShopAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 context.DialogDelete(shop.getName());
+            }
+        });
+        holder.btnEditShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.EditShop(shop.getName());
             }
         });
 

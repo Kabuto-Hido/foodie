@@ -5,7 +5,6 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -13,7 +12,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -29,62 +27,62 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class EditShopActivity extends AppCompatActivity {
-    ImageView btnUploadImageEditShop,btnBackEditShopPage;
-    Button btnConfirmEditShop, btnCancelEditShop;
-    EditText editTextEditShopName, editTextEditShopAddress, editTextEditShopPhone;
-    int REQUEST_CODE = 789;
+public class EditFoodActivity extends AppCompatActivity {
+    ImageView btnUploadImageEditFood, btnBackEditFoodPage;
+    EditText editTextEditFoodName, editTextEditFoodPrice, editTextEditFoodQuantity;
+    Button btnConfirmEditFood, btnCancelEditFood;
+    int REQUEST_CODE = 114;
+
+    int idFood = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_shop);
+        setContentView(R.layout.activity_edit_food);
 
-        btnUploadImageEditShop = (ImageView) findViewById(R.id.btnUploadImageEditShop);
-        btnBackEditShopPage = (ImageView) findViewById(R.id.btnBackEditShopPage);
-        btnConfirmEditShop = (Button) findViewById(R.id.btnConfirmEditShop);
-        btnCancelEditShop = (Button) findViewById(R.id.btnCancelEditShop);
-        editTextEditShopName = (EditText) findViewById(R.id.editTextEditShopName);
-        editTextEditShopAddress = (EditText) findViewById(R.id.editTextEditShopAddress);
-        editTextEditShopPhone = (EditText) findViewById(R.id.editTextEditShopPhone);
+        btnUploadImageEditFood = (ImageView) findViewById(R.id.btnUploadImageEditFood);
+        btnBackEditFoodPage = (ImageView) findViewById(R.id.btnBackEditFoodPage);
+        editTextEditFoodName = (EditText) findViewById(R.id.editTextEditFoodName);
+        editTextEditFoodPrice = (EditText) findViewById(R.id.editTextEditFoodPrice);
+        editTextEditFoodQuantity = (EditText) findViewById(R.id.editTextEditFoodQuantity);
+        btnConfirmEditFood = (Button) findViewById(R.id.btnConfirmEditFood);
+        btnCancelEditFood = (Button)  findViewById(R.id.btnCancelEditFood);
 
-        Intent get = getIntent();
-        String name = get.getStringExtra("editShopName");
+        SharedPreferences sharedPreferencesEditFood = getSharedPreferences("dataFood", MODE_PRIVATE);
+        idFood = sharedPreferencesEditFood.getInt("foodId",0);
 
-        Shop shop = MainActivity.db.getAllShopData(name);
+        Product pro = MainActivity.db.getAllProductData(idFood);
+        editTextEditFoodName.setText(pro.getName());
+        editTextEditFoodPrice.setText(Float.toString(pro.getPrice()));
+        editTextEditFoodQuantity.setText(Integer.toString(pro.getQuantity()));
 
-        editTextEditShopName.setText(name);
-        editTextEditShopAddress.setText(shop.getAddress());
-        editTextEditShopPhone.setText(shop.getPhone());
-
-        byte[] picture = shop.getImage();
+        byte[] picture = pro.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
-        btnUploadImageEditShop.setImageBitmap(bitmap);
+        btnUploadImageEditFood.setImageBitmap(bitmap);
 
-        btnBackEditShopPage.setOnClickListener(new View.OnClickListener() {
+        btnBackEditFoodPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(EditShopActivity.this, AdminHomeActivity.class));
+                startActivity(new Intent(EditFoodActivity.this,FoodManageActivity.class));
                 finish();
             }
         });
 
-        btnUploadImageEditShop.setOnClickListener(new View.OnClickListener() {
+        btnUploadImageEditFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(
-                        EditShopActivity.this,
+                        EditFoodActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE
                 );
             }
         });
 
-        btnConfirmEditShop.setOnClickListener(new View.OnClickListener() {
+        btnConfirmEditFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageEditShop.getDrawable();
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageEditFood.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
                 byte[] img;
                 if(bitmap != null) {
@@ -97,21 +95,23 @@ public class EditShopActivity extends AppCompatActivity {
                     img = null;
                 }
 
-                MainActivity.db.QueryData("UPDATE Shop SET Image = '"+img
-                        +"', Address = '" +editTextEditShopAddress.getText().toString().trim()
-                        +"', Phone = '"+editTextEditShopPhone.getText().toString().trim()
-                        +"' WHERE Name = '"+editTextEditShopName.getText().toString().trim()+"'");
+                Float newPrice = Float.parseFloat(editTextEditFoodPrice.getText().toString().trim());
+                int newQuantity = Integer.parseInt(editTextEditFoodQuantity.getText().toString().trim());
 
-                Toast.makeText(EditShopActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(EditShopActivity.this, AdminHomeActivity.class));
+                MainActivity.db.QueryData("UPDATE Product SET Image = '"+img
+                        +"', Name = '" +editTextEditFoodName.getText().toString().trim()
+                        +"', Price = "+newPrice +", Quantity = '"+newQuantity+"' WHERE Id = "+idFood+"");
+
+                Toast.makeText(EditFoodActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EditFoodActivity.this, FoodManageActivity.class));
                 finish();
             }
         });
 
-        btnCancelEditShop.setOnClickListener(new View.OnClickListener() {
+        btnCancelEditFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(EditShopActivity.this, AdminHomeActivity.class));
+                startActivity(new Intent(EditFoodActivity.this,FoodManageActivity.class));
                 finish();
             }
         });
@@ -140,13 +140,12 @@ public class EditShopActivity extends AppCompatActivity {
                 try {
                     InputStream inputStream = getContentResolver().openInputStream(uri);
                     Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                    btnUploadImageEditShop.setScaleType(ImageView.ScaleType.FIT_XY);
-                    btnUploadImageEditShop.setImageBitmap(bitmap);
+                    btnUploadImageEditFood.setScaleType(ImageView.ScaleType.FIT_XY);
+                    btnUploadImageEditFood.setImageBitmap(bitmap);
                 }catch (FileNotFoundException e){
                     e.printStackTrace();
                 }
             }
         }
     });
-
 }

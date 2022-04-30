@@ -74,9 +74,16 @@ public class AddShopActivity extends AppCompatActivity {
             public void onClick(View view) {
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageShop.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
-                byte[] img = byteArrayOutputStream.toByteArray();
+                byte[] img;
+                if(bitmap != null) {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                    img = byteArrayOutputStream.toByteArray();
+
+                }
+                else {
+                    img = null;
+                }
 
                 MainActivity.db.InsertShop(editTextShopName.getText().toString().trim(),
                         img,editTextShopAddress.getText().toString().trim(),
@@ -84,6 +91,7 @@ public class AddShopActivity extends AppCompatActivity {
 
                 Toast.makeText(AddShopActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AddShopActivity.this, AdminHomeActivity.class));
+                finish();
             }
         });
 

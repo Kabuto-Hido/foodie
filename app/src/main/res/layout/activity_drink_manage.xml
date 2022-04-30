@@ -14,6 +14,15 @@
         android:contentDescription="Image Shop"
         android:scaleType="fitXY" />
 
+    <ImageView
+        android:id="@+id/btnBackDrinkManage"
+        android:layout_width="45sp"
+        android:layout_height="32sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="15sp"
+        android:contentDescription="btn back"
+        android:src="@drawable/icon_btn_back" />
+
     <TextView
         android:id="@+id/textviewShopNameDrinkManage"
         android:layout_width="260sp"
@@ -84,10 +93,10 @@
             android:background="@drawable/button_styles2"/>
 
         <Button
-            android:id="@+id/btnRemoveDrink"
+            android:id="@+id/btnEditDrink"
             android:layout_width="150sp"
             android:layout_height="50sp"
-            android:text="Remove food"
+            android:text="Edit drink"
             android:textColor="#EFEAEA"
             android:textAllCaps="false"
             android:textSize="16sp"

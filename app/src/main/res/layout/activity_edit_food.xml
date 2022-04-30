@@ -4,61 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddDrinkActivity"
+    tools:context=".EditFoodActivity"
     android:background="@drawable/background">
 
     <ImageView
-        android:id="@+id/btnBackAddDrinkPage"
-        android:layout_width="45sp"
-        android:layout_height="32sp"
-        android:contentDescription="btn back"
-        android:src="@drawable/icon_btn_back"
-        android:layout_marginTop="15sp"
-        android:layout_marginStart="25sp"/>
-
-    <ImageView
-        android:id="@+id/btnUploadImageDrink"
+        android:id="@+id/btnUploadImageEditFood"
         android:layout_width="match_parent"
         android:layout_height="160sp"
-        android:contentDescription="Upload image drink"
-        android:layout_centerHorizontal="true"
+        android:contentDescription="Upload image food"
         android:scaleType="centerInside"
         android:src="@drawable/icon_upload" />
 
+    <ImageView
+        android:id="@+id/btnBackEditFoodPage"
+        android:layout_width="45sp"
+        android:layout_height="32sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="15sp"
+        android:contentDescription="btn back"
+        android:src="@drawable/icon_btn_back" />
+
     <TextView
-        android:id="@+id/txtLabelAddDrink"
+        android:id="@+id/txtLabelEditFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnUploadImageDrink"
+        android:layout_below="@+id/btnUploadImageEditFood"
         android:layout_marginTop="10sp"
         android:layout_marginStart="20sp"
-        android:text="Add a new drink"
+        android:text="Edit food"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtLabelDrinkName"
+        android:id="@+id/txtLabelEditFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtLabelAddDrink"
+        android:layout_below="@+id/txtLabelEditFood"
         android:layout_marginStart="30sp"
         android:layout_marginTop="20sp"
-        android:text="Drink name"
+        android:text="Food name"
         android:textColor="#000000"
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextDrinkName"
+        android:id="@+id/editTextEditFoodName"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/txtLabelDrinkName"
+        android:layout_below="@+id/txtLabelEditFoodName"
         android:layout_marginStart="30sp"
         android:layout_marginTop="10sp"
         android:layout_marginEnd="30sp"
         android:autofillHints="password"
         android:background="@drawable/border_input"
-        android:hint="Name drink you want to add"
+        android:hint="Name food you want to edit"
         android:inputType="text"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
@@ -66,56 +65,56 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/txtLabelDrinkPrice"
+        android:id="@+id/txtLabelEditFoodPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextDrinkName"
+        android:layout_below="@+id/editTextEditFoodName"
         android:layout_marginStart="30sp"
         android:layout_marginTop="20sp"
-        android:text="Drink price"
+        android:text="Food price"
         android:textColor="#000000"
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextDrinkPrice"
+        android:id="@+id/editTextEditFoodPrice"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/txtLabelDrinkPrice"
+        android:layout_below="@+id/txtLabelEditFoodPrice"
         android:layout_marginStart="30sp"
         android:layout_marginTop="10sp"
         android:layout_marginEnd="30sp"
         android:autofillHints="password"
         android:background="@drawable/border_input"
         android:hint="Price"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:textColor="@color/black"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/txtLabelDrinkQuantity"
+        android:id="@+id/txtLabelEditFoodQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextDrinkPrice"
+        android:layout_below="@+id/editTextEditFoodPrice"
         android:layout_marginStart="30sp"
         android:layout_marginTop="20sp"
-        android:text="Drink quantity"
+        android:text="Food quantity"
         android:textColor="#000000"
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextDrinkQuantity"
+        android:id="@+id/editTextEditFoodQuantity"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:layout_below="@+id/txtLabelDrinkQuantity"
+        android:layout_below="@+id/txtLabelEditFoodQuantity"
         android:layout_marginStart="30sp"
         android:layout_marginTop="10sp"
         android:layout_marginEnd="30sp"
         android:autofillHints="password"
         android:background="@drawable/border_input"
         android:hint="Quantity"
-        android:inputType="number"
+        android:inputType="text"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
         android:textColor="@color/black"
@@ -126,10 +125,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40sp">
+        android:layout_marginBottom="72sp">
 
         <Button
-            android:id="@+id/btnConfirmAddDrink"
+            android:id="@+id/btnConfirmEditFood"
             android:layout_width="150sp"
             android:layout_height="50sp"
             android:text="Confirm"
@@ -140,7 +139,7 @@
             android:background="@drawable/button_styles2"/>
 
         <Button
-            android:id="@+id/btnCancelAddDrink"
+            android:id="@+id/btnCancelEditFood"
             android:layout_width="150sp"
             android:layout_height="50sp"
             android:text="Cancel"

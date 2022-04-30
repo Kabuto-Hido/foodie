@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodie">
         <activity
+            android:name=".EditDrinkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditFoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditShopActivity"
             android:exported="false" />
         <activity

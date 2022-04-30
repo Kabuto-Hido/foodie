@@ -62,6 +62,19 @@ public class Database extends SQLiteOpenHelper {
         return data;
     }
 
+    public Product getAllProductData(int id){
+        Product product = null;
+        SQLiteDatabase sqlDB = getReadableDatabase();
+        String sql = "SELECT * FROM Product WHERE Id = "+ id +"";
+        Cursor data = sqlDB.rawQuery(sql,null);
+        if (data .moveToFirst()) {
+            product = new Product(id,data.getString(1), data.getString(2),
+                    data.getFloat(3),data.getInt(4),data.getBlob(5),data.getString(6),data.getString(7));
+        }
+        data.close();
+        return product;
+    }
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
