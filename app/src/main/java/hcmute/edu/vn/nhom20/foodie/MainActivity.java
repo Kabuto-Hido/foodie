@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
                 "Name NVARCHAR(200) NOT NULL ,Description NVARCHAR(200), Price FLOAT NOT NULL," +
                 " Quantity INTEGER NOT NULL, Image BLOB, Category VARCHAR(20), ShopName NVARCHAR(200) REFERENCES Shop(Name))");
 
+        //table Cart
+        //db.QueryData("DROP TABLE Cart");
+        db.QueryData("CREATE TABLE IF NOT EXISTS Cart(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), ProductId INTEGER NOT NULL REFERENCES Product(Id), " +
+                "Quantity INTEGER NOT NULL DEFAULT 1)");
+
         //insert shop
 
         //db.QueryData("DELETE FROM Shop WHERE Name = 'Uber Eats'");

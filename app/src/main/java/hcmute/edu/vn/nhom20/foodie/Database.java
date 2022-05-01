@@ -50,6 +50,12 @@ public class Database extends SQLiteOpenHelper {
         database.execSQL(sql);
     }
 
+    public void InsertCart(String userName, int idProduct, int quantity){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO Cart VALUES(null,'"+ userName +"', "+ idProduct +", "+ quantity +")";
+        database.execSQL(sql);
+    }
+
     public Shop getAllShopData(String name){
         Shop data = null;
         SQLiteDatabase sqlDB = getReadableDatabase();

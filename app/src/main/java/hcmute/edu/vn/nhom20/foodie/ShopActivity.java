@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,8 +23,7 @@ public class ShopActivity extends AppCompatActivity {
             textviewDrinkChoose;
     ListView listviewFoodAnDrink;
 
-    ArrayList<Product> foodArrayList;
-    ArrayList<Product> drinkArrayList;
+    ArrayList<Product> productArrayList;
     FoodOrDrinkAdapter adapter;
 
     String shopName;
@@ -59,10 +59,9 @@ public class ShopActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
         shopImageDetail.setImageBitmap(bitmap);
 
-        foodArrayList = new ArrayList<>();
-        drinkArrayList = new ArrayList<>();
+        productArrayList = new ArrayList<>();
 
-        adapter = new FoodOrDrinkAdapter(ShopActivity.this,R.layout.food_and_drink_row,foodArrayList);
+        adapter = new FoodOrDrinkAdapter(ShopActivity.this,R.layout.food_and_drink_row,productArrayList);
         listviewFoodAnDrink.setAdapter(adapter);
 
         getDataFood();
@@ -72,7 +71,7 @@ public class ShopActivity extends AppCompatActivity {
             public void onClick(View view) {
                 textviewFoodChoose.setTextColor(Color.parseColor("#FD4D05"));
                 textviewDrinkChoose.setTextColor(Color.parseColor("#979797"));
-                adapter = new FoodOrDrinkAdapter(ShopActivity.this,R.layout.food_and_drink_row,foodArrayList);
+                adapter = new FoodOrDrinkAdapter(ShopActivity.this,R.layout.food_and_drink_row,productArrayList);
                 listviewFoodAnDrink.setAdapter(adapter);
 
                 getDataFood();
@@ -84,7 +83,7 @@ public class ShopActivity extends AppCompatActivity {
             public void onClick(View view) {
                 textviewFoodChoose.setTextColor(Color.parseColor("#979797"));
                 textviewDrinkChoose.setTextColor(Color.parseColor("#FD4D05"));
-                adapter = new FoodOrDrinkAdapter(ShopActivity.this,R.layout.food_and_drink_row,drinkArrayList);
+                adapter = new FoodOrDrinkAdapter(ShopActivity.this,R.layout.food_and_drink_row,productArrayList);
                 listviewFoodAnDrink.setAdapter(adapter);
 
                 getDataDrink();
@@ -131,13 +130,23 @@ public class ShopActivity extends AppCompatActivity {
             }
         });
 
+        listviewFoodAnDrink.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent productDetailIntent = new Intent(ShopActivity.this,ProductDetailActivity.class);
+                productDetailIntent.putExtra("idFoodOrDrink",productArrayList.get(i).getId());
+                startActivity(productDetailIntent);
+                finish();
+            }
+        });
+
     }
     private void getDataFood(){
         Cursor FoodData = MainActivity.db.GetData("SELECT * FROM Product WHERE Category = 'Food' " +
                 "AND ShopName = '"+ shopName +"'");
-        foodArrayList.clear();
+        productArrayList.clear();
         while (FoodData.moveToNext()){
-            foodArrayList.add(new Product(
+            productArrayList.add(new Product(
                     FoodData.getInt(0),
                     FoodData.getString(1),
                     FoodData.getString(2),
@@ -154,9 +163,9 @@ public class ShopActivity extends AppCompatActivity {
     private void getDataDrink(){
         Cursor DrinkData = MainActivity.db.GetData("SELECT * FROM Product WHERE Category = 'Drink' " +
                 "AND ShopName = '"+ shopName +"'");
-        drinkArrayList.clear();
+        productArrayList.clear();
         while (DrinkData.moveToNext()){
-            drinkArrayList.add(new Product(
+            productArrayList.add(new Product(
                     DrinkData.getInt(0),
                     DrinkData.getString(1),
                     DrinkData.getString(2),

@@ -117,6 +117,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         dialogDelete.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity.db.QueryData("DELETE FROM Product WHERE ShopName = '"+ shopName +"'");
                 MainActivity.db.QueryData("DELETE FROM Shop WHERE Name = '"+shopName+"'");
                 Toast.makeText(AdminHomeActivity.this,"Delete "+shopName,Toast.LENGTH_SHORT).show();
                 getDataShop();

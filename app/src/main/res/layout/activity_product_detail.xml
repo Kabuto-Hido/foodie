@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ProductDetailActivity"
     android:background="@drawable/background">
-    
+
     <ImageView
-        android:id="@+id/imageProduct"
-        android:contentDescription="Image food or drink"
+        android:id="@+id/imageDetailProduct"
         android:layout_width="match_parent"
         android:layout_height="180sp"
-        android:scaleType="fitXY"/>
+        android:contentDescription="Image food or drink"
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/imageBackPageProductDetail"
@@ -27,31 +27,52 @@
         android:id="@+id/textviewNameProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageProduct"
-        android:text="product name"
-        android:textSize="28sp"
-        android:textColor="#121212"
+        android:layout_below="@id/imageDetailProduct"
         android:layout_marginStart="30sp"
         android:layout_marginTop="30sp"
+        android:text="product name"
+        android:textColor="#121212"
+        android:textSize="28sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtDescriptionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textviewNameProduct"
-        android:text="Description"
-        android:textSize="22sp"
-        android:textColor="#121212"
-        android:layout_marginStart="30sp"
-        android:layout_marginTop="20sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/textviewDescription"
+    <LinearLayout
+        android:id="@+id/linearAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtDescriptionLabel"
+        android:layout_below="@id/textviewNameProduct"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtDescriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:layout_marginTop="20sp"
+            android:text="Description"
+            android:textColor="#121212"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textviewAmountProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70sp"
+            android:layout_marginTop="20sp"
+            android:text="22 in stocks"
+            android:textSize="22sp"
+            android:textColor="#121212"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/textviewProductDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearAmount"
         android:text="Information product"
         android:textSize="19sp"
         android:textColor="#808080"
@@ -66,7 +87,7 @@
         android:id="@+id/linearPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textviewDescription"
+        android:layout_below="@+id/textviewProductDescription"
         android:orientation="horizontal"
         android:layout_marginTop="10sp">
 
@@ -123,7 +144,7 @@
             android:layout_gravity="bottom"/>
 
         <TextView
-            android:id="@+id/textviewQuantityPrice"
+            android:id="@+id/textviewQuantityProduct"
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
@@ -194,7 +215,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/btnAddToCart"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="40sp">
 
         <ImageView
