@@ -52,9 +52,20 @@ public class MainActivity extends AppCompatActivity {
                 "Quantity INTEGER NOT NULL DEFAULT 1)");
 
         //table FavoriteList
-        db.QueryData("DROP TABLE FavoriteList");
         db.QueryData("CREATE TABLE IF NOT EXISTS FavoriteList(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), ShopName NVARCHAR(200) NOT NULL REFERENCES Shop(Name))");
+
+        //Table Order
+        db.QueryData("DROP TABLE OrderDetail");
+        db.QueryData("DROP TABLE Orders");
+        db.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), OrderPrice FLOAT," +
+                "DeliveryPrice FLOAT, TotalPrice FLOAT)");
+
+        //Table OrderDetail
+        db.QueryData("CREATE TABLE IF NOT EXISTS OrderDetail(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "ProductId INTEGER NOT NULL REFERENCES Product(Id), OrderId INTEGER NOT NULL REFERENCES Orders(Id)," +
+                "Quantity INTEGER NOT NULL, UnitPrice FLOAT)");
 
         //insert shop
 

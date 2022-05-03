@@ -85,8 +85,52 @@ public class CartActivity extends AppCompatActivity {
         btnProcessPageCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CartActivity.this, MorePageActivity.class));
-                finish();
+                AlertDialog.Builder dialogNotification = new AlertDialog.Builder(CartActivity.this);
+                dialogNotification.setMessage("You will not be able to return to the shopping cart.");
+                dialogNotification.setMessage("Are you sure you want to continue?");
+                dialogNotification.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //create order
+                        MainActivity.db.InsertOrder(user);
+
+                        //Get newest order
+                        Cursor newestOrder = MainActivity.db.GetData("SELECT * FROM Orders WHERE UserName = '"+user+"'");
+
+                        Float orderPrice = Float.valueOf(0);
+
+                        if(newestOrder.moveToLast()){
+                            int idOrder = newestOrder.getInt(0);
+
+                            for (Cart cart : cartArrayList){
+                                //calculator unitPrice each product
+                                Product productInCart = MainActivity.db.getAllProductData(cart.getIdProduct());
+                                float priceProduct = productInCart.getPrice();
+                                float unitPriceProductInCart = (float) priceProduct * cart.getQuantity();
+                                orderPrice += unitPriceProductInCart;
+
+                                MainActivity.db.InsertOrderDetail(cart.getIdProduct(),idOrder,cart.getQuantity(),unitPriceProductInCart);
+                            }
+
+                            //MainActivity.db.QueryData("UPDATE Orders SET OrderPrice = "+orderPrice+" WHERE Id = "+idOrder+"");
+
+                            Intent payOnDelivery = new Intent(CartActivity.this, PayOnDeliverActivity.class);
+                            payOnDelivery.putExtra("orderId",idOrder);
+                            payOnDelivery.putExtra("orderPrice",orderPrice);
+                            startActivity(payOnDelivery);
+                            finish();
+                        }
+                    }
+                });
+
+                dialogNotification.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                dialogNotification.show();
+
             }
         });
 

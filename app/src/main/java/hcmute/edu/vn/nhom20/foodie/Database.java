@@ -24,7 +24,6 @@ public class Database extends SQLiteOpenHelper {
     public Cursor GetData(String sql){
         SQLiteDatabase db = getReadableDatabase();
         return db.rawQuery(sql,null);
-        //return db.
     }
 
     public void InsertAccount(String username, String password, String phone, String email, String address,
@@ -62,6 +61,18 @@ public class Database extends SQLiteOpenHelper {
         database.execSQL(sql);
     }
 
+    public void InsertOrder(String userName){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO Orders VALUES(null,'"+ userName +"',null,null,null)";
+        database.execSQL(sql);
+    }
+
+    public void InsertOrderDetail(int productId, int orderId, int quantity, float unitPrice){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO OrderDetail VALUES(null,"+ productId +","+orderId+","+quantity+","+unitPrice+")";
+        database.execSQL(sql);
+    }
+
     public Shop getAllShopData(String name){
         Shop data = null;
         SQLiteDatabase sqlDB = getReadableDatabase();
@@ -85,6 +96,19 @@ public class Database extends SQLiteOpenHelper {
         }
         data.close();
         return product;
+    }
+
+    public Account getAllAccountData(String userName){
+        Account account = null;
+        SQLiteDatabase sqlDB = getReadableDatabase();
+        String sql = "SELECT * FROM Account WHERE Username = '"+userName+"'";
+        Cursor data = sqlDB.rawQuery(sql,null);
+        if (data .moveToFirst()) {
+            account = new Account(userName, data.getString(1),
+                    data.getString(2),data.getString(3),data.getString(4),data.getBlob(5),data.getString(6));
+        }
+        data.close();
+        return account;
     }
 
     @Override

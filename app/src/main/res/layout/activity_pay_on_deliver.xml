@@ -7,72 +7,63 @@
     tools:context=".PayOnDeliverActivity"
     android:background="@drawable/background">
 
-    <LinearLayout
-        android:id="@+id/linearDelivery"
+    <TextView
+        android:id="@+id/txtLabelSelectMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_centerHorizontal="true"
+        android:text="Select Method"
+        android:textColor="#241C1C"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+    
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
-        android:orientation="horizontal">
+        android:layout_below="@+id/txtLabelSelectMethod"
+        android:layout_marginTop="30dp">
 
-        <ImageView
-            android:id="@+id/imageBackPageDeliver"
-            android:contentDescription="btn back"
-            android:layout_width="45sp"
-            android:layout_height="30sp"
-            android:layout_marginStart="25sp"
-            android:src="@drawable/icon_btn_back" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/radioBtn_PreOrder"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50sp"
-            android:text="Select Method"
-            android:textColor="#241C1C"
-            android:textSize="21sp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtLabelDeliver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearDelivery"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="34dp"
-        android:text="Delivery"
-        android:textColor="#FD4D05"
-        android:textSize="20sp" />
-
-    <LinearLayout
-        android:id="@+id/linearAddressDeliver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/txtLabelDeliver">
-
-        <EditText
-            android:id="@+id/editTextAddressDeliver"
-            android:layout_width="310sp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
-            android:layout_marginEnd="28sp"
-            android:layout_marginTop="10sp"
-            android:textSize="20sp"
-            android:text="address"
-            android:autofillHints="name"
-            android:inputType="text"
-            android:maxLines="2"
-            android:lines="2"/>
+            android:theme="@style/MyRadioButton"
+            tools:ignore="TouchTargetSizeCheck"
+            android:checked="true"
+            android:text="Pre Order"
+            android:textColor="#FD4D05"
+            android:textSize="20sp"/>
 
         <RadioButton
             android:id="@+id/radioBtn_Deliver"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:theme="@style/MyRadioButton" />
+            android:theme="@style/MyRadioButton"
+            tools:ignore="TouchTargetSizeCheck"
+            android:text="Delivery"
+            android:textColor="#FD4D05"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"/>
+        
+    </RadioGroup>
 
-    </LinearLayout>
+    <EditText
+        android:id="@+id/editTextAddressDeliver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="28sp"
+        android:layout_marginTop="10sp"
+        android:layout_below="@+id/radioGroup"
+        android:textSize="20sp"
+        android:text="address"
+        android:enabled="false"
+        android:autofillHints="name"
+        android:inputType="text"
+        android:maxLines="2"
+        android:lines="2"/>
 
     <Button
         android:id="@+id/btnChangeAddress"
@@ -83,38 +74,12 @@
         android:textSize="17sp"
         android:textColor="#979797"
         android:textAllCaps="false"
+        android:enabled="false"
+        android:layout_marginTop="10sp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30sp"
         android:background="?android:attr/selectableItemBackground"
-        android:layout_below="@+id/linearAddressDeliver"/>
-
-    <LinearLayout
-        android:id="@+id/linearAddressPreOrder"
-        android:layout_width="393sp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/btnChangeAddress">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linearAddressDeliver"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
-            android:text="Pre Order"
-            android:textColor="#FD4D05"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/radioBtn_PreOrder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="234sp"
-            android:theme="@style/MyRadioButton"
-            tools:ignore="TouchTargetSizeCheck" />
-
-    </LinearLayout>
+        android:layout_below="@+id/editTextAddressDeliver"/>
 
 
     <Button
@@ -122,7 +87,7 @@
         android:layout_width="280sp"
         android:layout_height="60sp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100sp"
+        android:layout_marginBottom="50sp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_styles2"
         android:text="Continue"
@@ -204,46 +169,6 @@
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20sp">
-
-        <ImageView
-            android:id="@+id/icon_inactive_home_DeliverPage"
-            android:contentDescription="Inactive Home"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_inactive_home"
-            android:layout_marginStart="50sp"/>
-
-        <ImageView
-            android:id="@+id/icon_inactive_list_love_DeliverPage"
-            android:contentDescription="Inactive love list"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_inactive_heart"
-            android:layout_marginStart="50sp"/>
-
-        <ImageView
-            android:id="@+id/icon_active_cart_DeliverPage"
-            android:contentDescription="Active Cart"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_active_cart"
-            android:layout_marginStart="50sp"/>
-
-        <ImageView
-            android:id="@+id/icon_inactive_more_DeliverPage"
-            android:contentDescription="Inactive more action"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/icon_inactive_more"
-            android:layout_marginStart="50sp"/>
-    </LinearLayout>
 
 
 </RelativeLayout>
