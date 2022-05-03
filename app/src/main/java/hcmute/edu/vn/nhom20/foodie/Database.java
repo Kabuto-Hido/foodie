@@ -56,6 +56,12 @@ public class Database extends SQLiteOpenHelper {
         database.execSQL(sql);
     }
 
+    public void InsertFavoriteList(String userName, String shopName){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO FavoriteList VALUES(null,'"+ userName +"', '"+ shopName +"')";
+        database.execSQL(sql);
+    }
+
     public Shop getAllShopData(String name){
         Shop data = null;
         SQLiteDatabase sqlDB = getReadableDatabase();

@@ -50,7 +50,12 @@ public class ProductDetailActivity extends AppCompatActivity {
         Product productDetail = MainActivity.db.getAllProductData(id);
         textviewNameProduct.setText(productDetail.getName());
         textviewAmountProduct.setText(Integer.toString(productDetail.getQuantity()) +" in stocks");
-        textviewProductDescription.setText(productDetail.getDescription());
+        if(productDetail.getDescription().equals(null)){
+            textviewProductDescription.setText("");
+        }
+        else{
+            textviewProductDescription.setText(productDetail.getDescription());
+        }
         textviewProductPrice.setText(Float.toString(productDetail.getPrice()) +" đ");
 
         byte[] picture = productDetail.getImage();

@@ -58,6 +58,38 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        icon_inactive_home_CartPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartActivity.this, HomeActivity.class));
+                finish();
+            }
+        });
+
+        icon_inactive_list_love_CartPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartActivity.this, FavoriteListActivity.class));
+                finish();
+            }
+        });
+
+        icon_inactive_more_CartPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartActivity.this, MorePageActivity.class));
+                finish();
+            }
+        });
+
+        btnProcessPageCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartActivity.this, MorePageActivity.class));
+                finish();
+            }
+        });
+
     }
 
     private void getDataCart(){
@@ -70,7 +102,6 @@ public class CartActivity extends AppCompatActivity {
                     CartData.getInt(2),
                     CartData.getInt(3)));
         }
-
         adapter.notifyDataSetChanged();
     }
 

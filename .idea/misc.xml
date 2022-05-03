@@ -30,7 +30,7 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_edit_drink.xml" value="0.225" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_edit_food.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_edit_shop.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_favorite_list.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_favorite_list.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_food_manage.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_login.xml" value="0.33" />
@@ -50,6 +50,7 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/food_manage_row.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/product_cart_row.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/product_favorite_row.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/shop_favorite_row.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/shop_row.xml" value="0.225" />
       </map>
     </option>

@@ -47,10 +47,14 @@ public class MainActivity extends AppCompatActivity {
                 " Quantity INTEGER NOT NULL, Image BLOB, Category VARCHAR(20), ShopName NVARCHAR(200) REFERENCES Shop(Name))");
 
         //table Cart
-        //db.QueryData("DROP TABLE Cart");
         db.QueryData("CREATE TABLE IF NOT EXISTS Cart(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), ProductId INTEGER NOT NULL REFERENCES Product(Id), " +
                 "Quantity INTEGER NOT NULL DEFAULT 1)");
+
+        //table FavoriteList
+        db.QueryData("DROP TABLE FavoriteList");
+        db.QueryData("CREATE TABLE IF NOT EXISTS FavoriteList(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), ShopName NVARCHAR(200) NOT NULL REFERENCES Shop(Name))");
 
         //insert shop
 

@@ -3,6 +3,7 @@ package hcmute.edu.vn.nhom20.foodie;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -58,6 +60,21 @@ public class ShopActivity extends AppCompatActivity {
         byte[] picture = shop.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
         shopImageDetail.setImageBitmap(bitmap);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        String username = sharedPreferences.getString("userLogin","");
+
+        Cursor checkShop = MainActivity.db.GetData("SELECT * FROM FavoriteList WHERE UserName = '"+username
+                +"' AND ShopName = '"+shopName+"'");
+
+        if(checkShop.moveToFirst()){       //have in favoriteList
+            imgAddFavorite.setImageResource(R.drawable.icon_active_heart);
+            imgAddFavorite.setTag(R.drawable.icon_active_heart);
+        }
+        else{
+            imgAddFavorite.setImageResource(R.drawable.icon_not_favorite);
+            imgAddFavorite.setTag(R.drawable.icon_not_favorite);
+        }
 
         productArrayList = new ArrayList<>();
 
@@ -137,6 +154,31 @@ public class ShopActivity extends AppCompatActivity {
                 productDetailIntent.putExtra("idFoodOrDrink",productArrayList.get(i).getId());
                 startActivity(productDetailIntent);
                 finish();
+            }
+        });
+
+        imgAddFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                SharedPreferences sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+//                String username = sharedPreferences.getString("userLogin","");
+//
+//                Cursor checkShop = MainActivity.db.GetData("SELECT * FROM FavoriteList WHERE UserName = '"+username
+//                        +"' AND ShopName = '"+shopName+"'");
+
+                if( (int)imgAddFavorite.getTag() == R.drawable.icon_not_favorite){       //don't have in favoriteList
+                    MainActivity.db.InsertFavoriteList(username,shopName);
+                    imgAddFavorite.setImageResource(R.drawable.icon_active_heart);
+                    imgAddFavorite.setTag(R.drawable.icon_active_heart);
+                    Toast.makeText(ShopActivity.this, "Succeed add "+shopName+" to favorite list", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    MainActivity.db.QueryData("DELETE FROM FavoriteList WHERE UserName = '"+username +
+                            "' AND ShopName = '"+shopName+"'");
+                    imgAddFavorite.setImageResource(R.drawable.icon_not_favorite);
+                    imgAddFavorite.setTag(R.drawable.icon_not_favorite);
+                    Toast.makeText(ShopActivity.this, "Succeed remove "+shopName+" to favorite list", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

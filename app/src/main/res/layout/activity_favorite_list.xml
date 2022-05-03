@@ -31,22 +31,24 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listviewProductInCart"
+        android:id="@+id/listviewShopFavorite"
         android:layout_width="match_parent"
-        android:layout_height="500sp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/linearFavoriteListMenu"
         android:layout_marginTop="25sp"
+        android:layout_marginBottom="150sp"
         android:dividerHeight="10sp"
         android:layout_marginStart="25sp"
         android:layout_marginEnd="25sp"/>
 
     <Button
-        android:id="@+id/btnDeleteProductInFavoriteList"
+        android:id="@+id/btnDeleteShopInFavorite"
         android:layout_width="280sp"
         android:layout_height="60sp"
         android:layout_marginTop="20sp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/listviewProductInCart"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60sp"
         android:background="@drawable/button_styles2"
         android:text="Delete"
         android:textStyle="bold"
@@ -57,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/btnDeleteProductInFavoriteList"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="20sp">
 
         <ImageView

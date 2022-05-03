@@ -1,6 +1,8 @@
 package hcmute.edu.vn.nhom20.foodie;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -9,15 +11,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class ShopAdapter extends BaseAdapter {
-    private Context context;
+    private HomeActivity context;
     private int layout;
     private List<Shop> lstShop;
 
-    public ShopAdapter(Context context, int layout, List<Shop> lstShop) {
+    public ShopAdapter(HomeActivity context, int layout, List<Shop> lstShop) {
         this.context = context;
         this.layout = layout;
         this.lstShop = lstShop;
@@ -66,6 +69,38 @@ public class ShopAdapter extends BaseAdapter {
         byte[] picture = shop.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
         holder.shopImage.setImageBitmap(bitmap);
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences("dataLogin", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("userLogin","");
+
+        Cursor checkShop = MainActivity.db.GetData("SELECT * FROM FavoriteList WHERE UserName = '"+username
+                +"' AND ShopName = '"+shop.getName()+"'");
+
+        if(checkShop.moveToFirst()){       //have in favoriteList
+            holder.btnFavorite.setImageResource(R.drawable.icon_active_heart);
+            holder.btnFavorite.setTag(R.drawable.icon_active_heart);
+        }
+        else{
+            holder.btnFavorite.setImageResource(R.drawable.icon_not_favorite);
+            holder.btnFavorite.setTag(R.drawable.icon_not_favorite);
+        }
+
+        holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if( (int)holder.btnFavorite.getTag() == R.drawable.icon_not_favorite){       //don't have in favoriteList
+                    MainActivity.db.InsertFavoriteList(username,shop.getName());
+                    holder.btnFavorite.setImageResource(R.drawable.icon_active_heart);
+                    holder.btnFavorite.setTag(R.drawable.icon_active_heart);
+                }
+                else{
+                    MainActivity.db.QueryData("DELETE FROM FavoriteList WHERE UserName = '"+username +
+                            "' AND ShopName = '"+shop.getName()+"'");
+                    holder.btnFavorite.setImageResource(R.drawable.icon_not_favorite);
+                    holder.btnFavorite.setTag(R.drawable.icon_not_favorite);
+                }
+            }
+        });
 
         return view;
     }

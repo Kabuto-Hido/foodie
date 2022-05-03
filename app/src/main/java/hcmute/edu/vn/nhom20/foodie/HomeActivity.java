@@ -70,17 +70,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        icon_active_home_homepage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(HomeActivity.this, HomeActivity.class);
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(i);
-                overridePendingTransition(0, 0);
-            }
-        });
-
         icon_inactive_list_love_homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
