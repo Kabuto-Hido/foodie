@@ -97,10 +97,17 @@ public class EditShopActivity extends AppCompatActivity {
                     img = null;
                 }
 
+                String address = editTextEditShopAddress.getText().toString().trim();
+                String phone = editTextEditShopPhone.getText().toString().trim();
+
+                if(address.equals("") || phone.equals("")){
+                    Toast.makeText(EditShopActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
+                }
+
                 MainActivity.db.QueryData("UPDATE Shop SET Image = '"+img
-                        +"', Address = '" +editTextEditShopAddress.getText().toString().trim()
-                        +"', Phone = '"+editTextEditShopPhone.getText().toString().trim()
-                        +"' WHERE Name = '"+editTextEditShopName.getText().toString().trim()+"'");
+                        +"', Address = '" +address
+                        +"', Phone = '"+phone
+                        +"' WHERE Name = '"+name+"'");
 
                 Toast.makeText(EditShopActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(EditShopActivity.this, AdminHomeActivity.class));

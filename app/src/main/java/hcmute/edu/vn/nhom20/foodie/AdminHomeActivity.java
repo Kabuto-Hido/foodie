@@ -74,7 +74,7 @@ public class AdminHomeActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString("detailShopName",shopList.get(i).getName());
                 editor.commit();
-
+                btnDetailShop.setEnabled(true);
             }
         });
 

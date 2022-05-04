@@ -73,6 +73,7 @@
             android:layout_height="50sp"
             android:layout_marginStart="30sp"
             android:background="@drawable/button_styles2"
+            android:enabled="false"
             android:text="Detail shop"
             android:textAllCaps="false"
             android:textColor="#EFEAEA"

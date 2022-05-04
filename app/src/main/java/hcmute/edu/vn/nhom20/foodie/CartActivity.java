@@ -86,8 +86,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dialogNotification = new AlertDialog.Builder(CartActivity.this);
-                dialogNotification.setMessage("You will not be able to return to the shopping cart.");
-                dialogNotification.setMessage("Are you sure you want to continue?");
+                dialogNotification.setMessage("You will not be able to return to the shopping cart. Are you sure you want to continue?");
                 dialogNotification.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

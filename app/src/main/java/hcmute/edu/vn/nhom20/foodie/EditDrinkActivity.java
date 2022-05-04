@@ -96,16 +96,23 @@ public class EditDrinkActivity extends AppCompatActivity {
                     img = null;
                 }
 
+                String name = editTextEditDrinkName.getText().toString().trim();
                 Float newPrice = Float.parseFloat(editTextEditDrinkPrice.getText().toString().trim());
                 int newQuantity = Integer.parseInt(editTextEditDrinkQuantity.getText().toString().trim());
 
-                MainActivity.db.QueryData("UPDATE Product SET Image = '"+img
-                        +"', Name = '" +editTextEditDrinkName.getText().toString().trim()
-                        +"', Price = "+newPrice +", Quantity = '"+newQuantity+"' WHERE Id = "+idDrink+"");
+                if(name.equals("") || editTextEditDrinkPrice.getText().toString().trim().equals("") ||
+                        editTextEditDrinkQuantity.getText().toString().trim().equals("")){
+                    Toast.makeText(EditDrinkActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    MainActivity.db.QueryData("UPDATE Product SET Image = '" + img
+                            + "', Name = '" + name
+                            + "', Price = " + newPrice + ", Quantity = '" + newQuantity + "' WHERE Id = " + idDrink + "");
 
-                Toast.makeText(EditDrinkActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(EditDrinkActivity.this, DrinkManageActivity.class));
-                finish();
+                    Toast.makeText(EditDrinkActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(EditDrinkActivity.this, DrinkManageActivity.class));
+                    finish();
+                }
             }
         });
 

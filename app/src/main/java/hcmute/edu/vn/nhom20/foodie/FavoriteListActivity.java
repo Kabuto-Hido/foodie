@@ -53,6 +53,7 @@ public class FavoriteListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 pos = i;
+                btnDeleteShopInFavorite.setEnabled(true);
             }
         });
 

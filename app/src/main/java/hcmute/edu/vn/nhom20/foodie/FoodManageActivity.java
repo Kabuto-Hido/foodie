@@ -87,6 +87,7 @@ public class FoodManageActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedP.edit();
                 editor.putInt("foodId",foodList.get(i).getId());
                 editor.commit();
+                btnEditFood.setEnabled(true);
             }
         });
 

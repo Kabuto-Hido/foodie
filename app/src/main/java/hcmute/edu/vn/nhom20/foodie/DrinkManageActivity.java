@@ -85,6 +85,7 @@ public class DrinkManageActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedD.edit();
                 editor.putInt("drinkId",drinkList.get(i).getId());
                 editor.commit();
+                btnEditDrink.setEnabled(true);
             }
         });
 

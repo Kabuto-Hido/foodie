@@ -63,9 +63,10 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/SCBSwitch"
+            android:layout_marginStart="140sp"
             android:checked="false"
-            android:layout_marginStart="140sp" />
+            android:theme="@style/SCBSwitch"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 

@@ -85,13 +85,22 @@ public class AddShopActivity extends AppCompatActivity {
                     img = null;
                 }
 
-                MainActivity.db.InsertShop(editTextShopName.getText().toString().trim(),
-                        img,editTextShopAddress.getText().toString().trim(),
-                        editTextShopPhone.getText().toString().trim());
+                String name = editTextShopName.getText().toString().trim();
+                String address = editTextShopAddress.getText().toString().trim();
+                String phone = editTextShopPhone.getText().toString().trim();
 
-                Toast.makeText(AddShopActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddShopActivity.this, AdminHomeActivity.class));
-                finish();
+                if(!checkShopName(name)){
+                    Toast.makeText(AddShopActivity.this, name+" already exist", Toast.LENGTH_SHORT).show();
+                }
+                else if(name.equals("") || address.equals("") || phone.equals("")){
+                    Toast.makeText(AddShopActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    MainActivity.db.InsertShop(name, img, address, phone);
+                    Toast.makeText(AddShopActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddShopActivity.this, AdminHomeActivity.class));
+                    finish();
+                }
             }
         });
 
@@ -137,5 +146,13 @@ public class AddShopActivity extends AppCompatActivity {
         }
     });
 
+    private boolean checkShopName(String name){
+        Cursor shopData = MainActivity.db.GetData("SELECT * FROM Shop WHERE Name = '"
+                + name +"'");
+        if(!shopData.moveToFirst()){ //empty
+            return true;
+        }
+        return false;
+    }
 
 }

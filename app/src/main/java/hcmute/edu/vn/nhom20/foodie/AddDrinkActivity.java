@@ -83,15 +83,22 @@ public class AddDrinkActivity extends AppCompatActivity {
                     img = null;
                 }
 
+                String name = editTextDrinkName.getText().toString().trim();
                 Float drinkPrice = Float.parseFloat(editTextDrinkPrice.getText().toString().trim());
                 int drinkQuantity = Integer.parseInt(editTextDrinkQuantity.getText().toString().trim());
 
-                MainActivity.db.InsertProduct(editTextDrinkName.getText().toString().trim(),
-                        null,drinkPrice,drinkQuantity, img, "Drink",shopNameAddDrink);
+                if(name.equals("") || editTextDrinkPrice.getText().toString().trim().equals("") ||
+                        editTextDrinkQuantity.getText().toString().trim().equals("")){
+                    Toast.makeText(AddDrinkActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    MainActivity.db.InsertProduct(name, null, drinkPrice, drinkQuantity, img,
+                            "Drink", shopNameAddDrink);
 
-                Toast.makeText(AddDrinkActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(AddDrinkActivity.this, DrinkManageActivity.class));
-                finish();
+                    Toast.makeText(AddDrinkActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddDrinkActivity.this, DrinkManageActivity.class));
+                    finish();
+                }
             }
         });
 

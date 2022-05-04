@@ -20,7 +20,7 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/icon_logout.xml" value="0.198" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/icon_upload.xml" value="0.198" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/drawable/round_corner_item_gridview.xml" value="0.148" />
-        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_add_drink.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_add_drink.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_add_food.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_add_shop.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_admin_home.xml" value="0.33" />
@@ -52,6 +52,8 @@
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/product_favorite_row.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/shop_favorite_row.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/layout/shop_row.xml" value="0.225" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1625" />
+        <entry key="..\:/AndroidStudioProjects/Foodie/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1625" />
       </map>
     </option>
   </component>
