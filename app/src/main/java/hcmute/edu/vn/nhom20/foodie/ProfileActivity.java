@@ -117,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity {
                 else if(!checkEmail(newEmail) && !newEmail.equals(acc.getEmail())){
                     Toast.makeText(ProfileActivity.this, "Email already exist", Toast.LENGTH_SHORT).show();
                 }
-                else {
+                else{
                     MainActivity.db.QueryData("UPDATE Account SET Phone = '"+newPhone
                             +"', Email = '"+newEmail+"', Address = '"+newAddress+"', Image = '"+img
                             +"' WHERE Username = '"+username+"'");
