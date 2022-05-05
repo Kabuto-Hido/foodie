@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import hcmute.edu.vn.nhom20.foodie.model.Account;
+
 public class MorePageActivity extends AppCompatActivity {
     ImageView imageBackPageMorePage;
     Button btnLogOut, btnEditProfile, btnChangePassword;

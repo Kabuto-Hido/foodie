@@ -2,12 +2,15 @@ package hcmute.edu.vn.nhom20.foodie;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 
 import androidx.annotation.Nullable;
+
+import hcmute.edu.vn.nhom20.foodie.model.Account;
+import hcmute.edu.vn.nhom20.foodie.model.Product;
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
 
 public class Database extends SQLiteOpenHelper {
 
@@ -26,27 +29,51 @@ public class Database extends SQLiteOpenHelper {
         return db.rawQuery(sql,null);
     }
 
-    public void InsertAccount(String username, String password, String phone, String email, String address,
-                              byte[] image, String role){
+    public void InsertAccount(String username, String password, String email, String role){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO Account VALUES('"+username+"','"+password+"','"+phone+
-                "', '"+email+"', '"+address+"', '"+image+"', '"+role+"')";
-        database.execSQL(sql);
+        String sql = "INSERT INTO Account (Username,Password,Email,Role) VALUES(?,?,?,?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,username);
+        statement.bindString(2,password);
+        statement.bindString(3,email);
+        statement.bindString(4,role);
+
+        statement.executeInsert();
     }
 
     public void InsertShop(String name, byte[] image, String address, String phone){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO Shop VALUES('"+name+"','"+image+"','"+address+
-                "', '"+phone+"')";
-        database.execSQL(sql);
+        String sql = "INSERT INTO Shop VALUES(?,?,?,?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,name);
+        statement.bindBlob(2,image);
+        statement.bindString(3,address);
+        statement.bindString(4,phone);
+
+        statement.executeInsert();
+
     }
 
     public void InsertProduct(String name, String description, Float price, int quantity, byte[] image,
                               String category, String shopname){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO Product VALUES(null,'"+name+"','"+description+"',"+price+
-                ", "+quantity+",'"+image+"','"+category+"', '"+shopname+"')";
-        database.execSQL(sql);
+        String sql = "INSERT INTO Product VALUES(null,?,?,?,?,?,?,?)";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,name);
+        statement.bindString(2,description);
+        statement.bindDouble(3,price);
+        statement.bindDouble(4,quantity);
+        statement.bindBlob(5,image);
+        statement.bindString(6,category);
+        statement.bindString(7,shopname);
+
+        statement.executeInsert();
     }
 
     public void InsertCart(String userName, int idProduct, int quantity){
@@ -71,6 +98,50 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         String sql = "INSERT INTO OrderDetail VALUES(null,"+ productId +","+orderId+","+quantity+","+unitPrice+")";
         database.execSQL(sql);
+    }
+
+    public void UpdateShop(String name, byte[] image, String address, String phone){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "UPDATE Shop SET Image = ?, Address = ?, Phone = ? WHERE Name = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindBlob(1,image);
+        statement.bindString(2,address);
+        statement.bindString(3,phone);
+        statement.bindString(4,name);
+
+        statement.executeUpdateDelete();
+    }
+
+    public void UpdateProduct(int id, String name, Float price, int quantity, byte[] image){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "UPDATE Product SET Image = ?, Name = ?, Price = ?, Quantity = ? WHERE Id = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindBlob(1,image);
+        statement.bindString(2,name);
+        statement.bindDouble(3,price);
+        statement.bindDouble(4,quantity);
+        statement.bindDouble(5,id);
+
+        statement.executeUpdateDelete();
+    }
+
+    public void UpdateAccount(String username, String phone, String email, String address, byte[] image){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "UPDATE Account SET Phone = ?, Email = ?, Address = ?, Image = ? WHERE Username = ?";
+
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,phone);
+        statement.bindString(2,email);
+        statement.bindString(3,address);
+        statement.bindBlob(4,image);
+        statement.bindString(5,username);
+
+        statement.executeUpdateDelete();
     }
 
     public Shop getAllShopData(String name){

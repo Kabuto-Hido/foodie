@@ -92,7 +92,7 @@ public class AddDrinkActivity extends AppCompatActivity {
                     Toast.makeText(AddDrinkActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    MainActivity.db.InsertProduct(name, null, drinkPrice, drinkQuantity, img,
+                    MainActivity.db.InsertProduct(name, "Good", drinkPrice, drinkQuantity, img,
                             "Drink", shopNameAddDrink);
 
                     Toast.makeText(AddDrinkActivity.this, "Succeed", Toast.LENGTH_SHORT).show();

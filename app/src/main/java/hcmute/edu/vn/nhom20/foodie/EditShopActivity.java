@@ -5,15 +5,12 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -28,6 +25,8 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
 
 public class EditShopActivity extends AppCompatActivity {
     ImageView btnUploadImageEditShop,btnBackEditShopPage;
@@ -59,6 +58,7 @@ public class EditShopActivity extends AppCompatActivity {
 
         byte[] picture = shop.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
+        btnUploadImageEditShop.setScaleType(ImageView.ScaleType.FIT_XY);
         btnUploadImageEditShop.setImageBitmap(bitmap);
 
         btnBackEditShopPage.setOnClickListener(new View.OnClickListener() {
@@ -87,15 +87,10 @@ public class EditShopActivity extends AppCompatActivity {
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageEditShop.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
                 byte[] img;
-                if(bitmap != null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    img = byteArrayOutputStream.toByteArray();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                img = byteArrayOutputStream.toByteArray();
 
-                }
-                else {
-                    img = null;
-                }
 
                 String address = editTextEditShopAddress.getText().toString().trim();
                 String phone = editTextEditShopPhone.getText().toString().trim();
@@ -104,10 +99,7 @@ public class EditShopActivity extends AppCompatActivity {
                     Toast.makeText(EditShopActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
                 }
 
-                MainActivity.db.QueryData("UPDATE Shop SET Image = '"+img
-                        +"', Address = '" +address
-                        +"', Phone = '"+phone
-                        +"' WHERE Name = '"+name+"'");
+                MainActivity.db.UpdateShop(name,img,address,phone);
 
                 Toast.makeText(EditShopActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(EditShopActivity.this, AdminHomeActivity.class));

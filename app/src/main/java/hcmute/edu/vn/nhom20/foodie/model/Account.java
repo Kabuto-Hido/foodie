@@ -1,4 +1,4 @@
-package hcmute.edu.vn.nhom20.foodie;
+package hcmute.edu.vn.nhom20.foodie.model;
 
 public class Account {
     private String username;

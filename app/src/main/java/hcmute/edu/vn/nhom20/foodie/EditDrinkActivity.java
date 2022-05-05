@@ -15,7 +15,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +26,8 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import hcmute.edu.vn.nhom20.foodie.model.Product;
 
 public class EditDrinkActivity extends AppCompatActivity {
     ImageView btnUploadImageEditDrink, btnBackEditDrinkPage;
@@ -105,9 +106,7 @@ public class EditDrinkActivity extends AppCompatActivity {
                     Toast.makeText(EditDrinkActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    MainActivity.db.QueryData("UPDATE Product SET Image = '" + img
-                            + "', Name = '" + name
-                            + "', Price = " + newPrice + ", Quantity = '" + newQuantity + "' WHERE Id = " + idDrink + "");
+                    MainActivity.db.UpdateProduct(idDrink,name,newPrice,newQuantity,img);
 
                     Toast.makeText(EditDrinkActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EditDrinkActivity.this, DrinkManageActivity.class));

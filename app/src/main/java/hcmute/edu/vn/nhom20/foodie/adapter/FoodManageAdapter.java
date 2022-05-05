@@ -1,4 +1,4 @@
-package hcmute.edu.vn.nhom20.foodie;
+package hcmute.edu.vn.nhom20.foodie.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import hcmute.edu.vn.nhom20.foodie.FoodManageActivity;
+import hcmute.edu.vn.nhom20.foodie.R;
+import hcmute.edu.vn.nhom20.foodie.model.Product;
 
 public class FoodManageAdapter extends BaseAdapter {
     private FoodManageActivity context;

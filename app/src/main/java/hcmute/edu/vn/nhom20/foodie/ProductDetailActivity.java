@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import hcmute.edu.vn.nhom20.foodie.model.Product;
+
 public class ProductDetailActivity extends AppCompatActivity {
     ImageView imageDetailProduct, imageBackPageProductDetail, icon_active_home_productDetailPage,
             icon_inactive_list_love_productDetailPage, icon_inactive_cart_productDetailPage,

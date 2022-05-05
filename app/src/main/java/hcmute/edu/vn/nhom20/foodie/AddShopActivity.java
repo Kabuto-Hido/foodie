@@ -1,18 +1,18 @@
 package hcmute.edu.vn.nhom20.foodie;
 
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -20,13 +20,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -35,7 +35,7 @@ public class AddShopActivity extends AppCompatActivity {
     ImageView btnUploadImageShop,btnBackAddShopPage;
     Button btnConfirmAddShop, btnCancelAddShop;
     EditText editTextShopName, editTextShopAddress, editTextShopPhone;
-    int REQUEST_CODE = 456;
+    private static final int REQUEST_CODE = 456;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,18 +72,13 @@ public class AddShopActivity extends AppCompatActivity {
         btnConfirmAddShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                byte[] img;
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageShop.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
-                byte[] img;
-                if(bitmap != null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    img = byteArrayOutputStream.toByteArray();
 
-                }
-                else {
-                    img = null;
-                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                img = byteArrayOutputStream.toByteArray();
 
                 String name = editTextShopName.getText().toString().trim();
                 String address = editTextShopAddress.getText().toString().trim();
@@ -92,7 +87,7 @@ public class AddShopActivity extends AppCompatActivity {
                 if(!checkShopName(name)){
                     Toast.makeText(AddShopActivity.this, name+" already exist", Toast.LENGTH_SHORT).show();
                 }
-                else if(name.equals("") || address.equals("") || phone.equals("")){
+                else if(name.equals("") || address.equals("") || phone.equals("") || bitmap == null){
                     Toast.makeText(AddShopActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
                 }
                 else{

@@ -27,6 +27,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import hcmute.edu.vn.nhom20.foodie.model.Product;
+
 public class EditFoodActivity extends AppCompatActivity {
     ImageView btnUploadImageEditFood, btnBackEditFoodPage;
     EditText editTextEditFoodName, editTextEditFoodPrice, editTextEditFoodQuantity;
@@ -58,6 +60,7 @@ public class EditFoodActivity extends AppCompatActivity {
 
         byte[] picture = pro.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
+        btnUploadImageEditFood.setScaleType(ImageView.ScaleType.FIT_XY);
         btnUploadImageEditFood.setImageBitmap(bitmap);
 
         btnBackEditFoodPage.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +107,7 @@ public class EditFoodActivity extends AppCompatActivity {
                     Toast.makeText(EditFoodActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    MainActivity.db.QueryData("UPDATE Product SET Image = '" + img
-                            + "', Name = '" + name + "', Price = " + newPrice + ", Quantity = '" + newQuantity
-                            + "' WHERE Id = " + idFood + "");
+                    MainActivity.db.UpdateProduct(idFood,name,newPrice,newQuantity,img);
 
                     Toast.makeText(EditFoodActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EditFoodActivity.this, FoodManageActivity.class));

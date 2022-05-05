@@ -20,6 +20,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import hcmute.edu.vn.nhom20.foodie.adapter.FoodManageAdapter;
+import hcmute.edu.vn.nhom20.foodie.model.Product;
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
+
 public class FoodManageActivity extends AppCompatActivity {
     ImageView foodManageShopImage, icon_active_home_foodManagePage,
             icon_inactive_more_foodManagePage, btnBackFoodManage;

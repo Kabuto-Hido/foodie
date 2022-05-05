@@ -1,4 +1,4 @@
-package hcmute.edu.vn.nhom20.foodie;
+package hcmute.edu.vn.nhom20.foodie.adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,9 +11,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
+
+import hcmute.edu.vn.nhom20.foodie.HomeActivity;
+import hcmute.edu.vn.nhom20.foodie.MainActivity;
+import hcmute.edu.vn.nhom20.foodie.R;
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
 
 public class ShopAdapter extends BaseAdapter {
     private HomeActivity context;

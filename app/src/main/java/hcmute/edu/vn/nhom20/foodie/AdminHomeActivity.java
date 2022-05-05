@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import hcmute.edu.vn.nhom20.foodie.adapter.AdminShopAdapter;
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
+
 public class AdminHomeActivity extends AppCompatActivity {
     TextView AdminWelcome;
     ListView listviewShop;

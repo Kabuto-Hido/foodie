@@ -28,6 +28,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import hcmute.edu.vn.nhom20.foodie.model.Account;
+
 public class ProfileActivity extends AppCompatActivity {
     ImageView imageBackPageEditProfile, imageUser;
     EditText editTextUserNameEditProfile, editTextEmailEditProfile,
@@ -98,14 +100,9 @@ public class ProfileActivity extends AppCompatActivity {
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) imageUser.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
                 byte[] img;
-                if(bitmap != null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    img = byteArrayOutputStream.toByteArray();
-                }
-                else {
-                    img = null;
-                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                img = byteArrayOutputStream.toByteArray();
 
                 String newEmail = editTextEmailEditProfile.getText().toString().trim();
                 String newPhone = editTextPhoneNumberEditProfile.getText().toString().trim();
@@ -118,9 +115,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Toast.makeText(ProfileActivity.this, "Email already exist", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    MainActivity.db.QueryData("UPDATE Account SET Phone = '"+newPhone
-                            +"', Email = '"+newEmail+"', Address = '"+newAddress+"', Image = '"+img
-                            +"' WHERE Username = '"+username+"'");
+                    MainActivity.db.UpdateAccount(username,newPhone,newEmail,newAddress,img);
                     Toast.makeText(ProfileActivity.this, "Succeed", Toast.LENGTH_SHORT).show();
                 }
 

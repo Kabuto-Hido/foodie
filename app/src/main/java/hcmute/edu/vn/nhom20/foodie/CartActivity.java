@@ -16,6 +16,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import hcmute.edu.vn.nhom20.foodie.adapter.CartAdapter;
+import hcmute.edu.vn.nhom20.foodie.model.Cart;
+import hcmute.edu.vn.nhom20.foodie.model.Product;
+
 public class CartActivity extends AppCompatActivity {
     ImageView btnBackPageCart, icon_inactive_home_CartPage, icon_inactive_list_love_CartPage,
             icon_active_cart_CartPage, icon_inactive_more_CartPage;

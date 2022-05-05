@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 " Password VARCHAR(200) NOT NULL,Phone VARCHAR(12), Email VARCHAR(200) NOT NULL UNIQUE," +
                 "Address NVARCHAR(200), Image BLOB, Role VARCHAR(30) NOT NULL)");
 
+        //db.QueryData("DROP TABLE Product");
+        //db.QueryData("DROP TABLE Shop");
         //table Shop
         db.QueryData("CREATE TABLE IF NOT EXISTS Shop(Name NVARCHAR(200) PRIMARY KEY," +
                 " Image BLOB, Address NVARCHAR(200), Phone VARCHAR(12))");
@@ -82,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
         //insert admin
 //        db.QueryData("DELETE FROM Account WHERE Username = 'Kabuto'");
-//        db.InsertAccount("Kabuto","123456",null,"ngobuituananh@gmail.com",null,null,"Admin");
+//        db.InsertAccount("Kabuto","123456","ngobuituananh@gmail.com","Admin");
 //        db.QueryData("DELETE FROM Account WHERE Username = 'Tuan Anh'");
-//        db.InsertAccount("Tuan Anh","tuananh123",null,"tuananh@gmail.com",null,null,"Customer");
+//        db.InsertAccount("Tuan Anh","tuananh123","tuananh@gmail.com","Customer");
 
         btnGetStart.setOnClickListener(new View.OnClickListener() {
             @Override

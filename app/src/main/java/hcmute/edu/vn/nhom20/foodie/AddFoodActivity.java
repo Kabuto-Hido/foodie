@@ -93,7 +93,7 @@ public class AddFoodActivity extends AppCompatActivity {
                     Toast.makeText(AddFoodActivity.this, "Please fill all fields!!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    MainActivity.db.InsertProduct(name, null, foodPrice, foodQuantity,
+                    MainActivity.db.InsertProduct(name, "Good", foodPrice, foodQuantity,
                             img, "Food", shopNameAddFood);
 
                     Toast.makeText(AddFoodActivity.this, "Succeed", Toast.LENGTH_SHORT).show();

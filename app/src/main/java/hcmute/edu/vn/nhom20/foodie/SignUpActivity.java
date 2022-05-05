@@ -51,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this,"Email already exist",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    MainActivity.db.InsertAccount(username,password,null,email,null,null,"Customer");
+                    MainActivity.db.InsertAccount(username,password,email,"Customer");
                     Toast.makeText(SignUpActivity.this,"Succeed",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                     finish();

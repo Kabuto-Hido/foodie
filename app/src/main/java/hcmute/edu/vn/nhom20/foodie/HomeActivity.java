@@ -1,10 +1,5 @@
 package hcmute.edu.vn.nhom20.foodie;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
@@ -18,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import hcmute.edu.vn.nhom20.foodie.adapter.ShopAdapter;
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
 
 public class HomeActivity extends AppCompatActivity {
     SearchView searchView;

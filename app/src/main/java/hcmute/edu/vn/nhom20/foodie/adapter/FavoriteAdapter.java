@@ -1,7 +1,6 @@
-package hcmute.edu.vn.nhom20.foodie;
+package hcmute.edu.vn.nhom20.foodie.adapter;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -13,20 +12,26 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class FoodOrDrinkAdapter extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<Product> lstProduct;
+import hcmute.edu.vn.nhom20.foodie.FavoriteListActivity;
+import hcmute.edu.vn.nhom20.foodie.MainActivity;
+import hcmute.edu.vn.nhom20.foodie.R;
+import hcmute.edu.vn.nhom20.foodie.model.FavoriteList;
+import hcmute.edu.vn.nhom20.foodie.model.Shop;
 
-    public FoodOrDrinkAdapter(Context context, int layout, List<Product> lstProduct) {
+public class FavoriteAdapter extends BaseAdapter {
+    private FavoriteListActivity context;
+    private int layout;
+    private List<FavoriteList> lstFavorite;
+
+    public FavoriteAdapter(FavoriteListActivity context, int layout, List<FavoriteList> lstFavorite) {
         this.context = context;
         this.layout = layout;
-        this.lstProduct = lstProduct;
+        this.lstFavorite = lstFavorite;
     }
 
     @Override
     public int getCount() {
-        return lstProduct.size();
+        return lstFavorite.size();
     }
 
     @Override
@@ -40,8 +45,8 @@ public class FoodOrDrinkAdapter extends BaseAdapter {
     }
 
     private class ViewHolder{
-        TextView textviewFoodOrDrinkName,textviewFoodOrDrinkPrice;
-        ImageView imageFoodOrDrink;
+        TextView textviewNameProductFavorite;
+        ImageView imageProductFavorite;
     }
 
     @Override
@@ -52,29 +57,25 @@ public class FoodOrDrinkAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,null);
 
-            holder.imageFoodOrDrink = (ImageView) view.findViewById(R.id.imageFoodOrDrink);
-            holder.textviewFoodOrDrinkName = (TextView) view.findViewById(R.id.textviewFoodOrDrinkName);
-            holder.textviewFoodOrDrinkPrice = (TextView) view.findViewById(R.id.textviewFoodOrDrinkPrice);
+            holder.textviewNameProductFavorite = (TextView) view.findViewById(R.id.textviewNameProductFavorite);
+            holder.imageProductFavorite = (ImageView) view.findViewById(R.id.imageProductFavorite);
 
             view.setTag(holder);
         }
         else{
             holder = (ViewHolder) view.getTag();
         }
-        final Product product = lstProduct.get(i);
-        holder.textviewFoodOrDrinkName.setText(product.getName());
-        String price = Float.toString(product.getPrice());
-        holder.textviewFoodOrDrinkPrice.setText(price +"đ");
 
+        final FavoriteList Favorite = lstFavorite.get(i);
+
+        Shop dataShop = MainActivity.db.getAllShopData(Favorite.getShopName());
+
+        holder.textviewNameProductFavorite.setText(dataShop.getName());
         //byte -> bitmap
-        byte[] picture = product.getImage();
-        if(picture.length < 0){
-            holder.imageFoodOrDrink.setImageResource(R.drawable.icon_image_not_found);
-        }
+        byte[] picture = dataShop.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
-        holder.imageFoodOrDrink.setImageBitmap(bitmap);
+        holder.imageProductFavorite.setImageBitmap(bitmap);
 
         return view;
     }
-
 }

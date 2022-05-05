@@ -14,7 +14,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import hcmute.edu.vn.nhom20.foodie.adapter.FavoriteAdapter;
+import hcmute.edu.vn.nhom20.foodie.model.FavoriteList;
 
 public class FavoriteListActivity extends AppCompatActivity {
     ImageView imageBackPageFavorite, icon_inactive_home_FavoritePage,
