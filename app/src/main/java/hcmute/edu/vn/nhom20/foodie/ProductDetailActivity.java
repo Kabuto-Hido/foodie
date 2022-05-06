@@ -8,10 +8,15 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import hcmute.edu.vn.nhom20.foodie.model.Product;
 
@@ -20,8 +25,9 @@ public class ProductDetailActivity extends AppCompatActivity {
             icon_inactive_list_love_productDetailPage, icon_inactive_cart_productDetailPage,
             icon_inactive_more_productDetailPage;
     TextView textviewNameProduct, textviewAmountProduct, textviewProductDescription,
-            textviewProductPrice, textviewQuantityProduct, textviewProductTotalPrice;
+            textviewProductPrice, textviewProductTotalPrice;
     Button btnDecreaseQuantity, btnIncreaseQuantity, btnAddToCart;
+    EditText edittextQuantityProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         textviewAmountProduct = (TextView) findViewById(R.id.textviewAmountProduct);
         textviewProductDescription = (TextView) findViewById(R.id.textviewProductDescription);
         textviewProductPrice = (TextView) findViewById(R.id.textviewProductPrice);
-        textviewQuantityProduct = (TextView) findViewById(R.id.textviewQuantityProduct);
+        edittextQuantityProduct = (EditText) findViewById(R.id.edittextQuantityProduct);
         textviewProductTotalPrice = (TextView) findViewById(R.id.textviewProductTotalPrice);
 
         btnDecreaseQuantity = (Button) findViewById(R.id.btnDecreaseQuantity);
@@ -59,6 +65,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             textviewProductDescription.setText(productDetail.getDescription());
         }
         textviewProductPrice.setText(Float.toString(productDetail.getPrice()) +" đ");
+        textviewProductTotalPrice.setText(Float.toString(productDetail.getPrice()) +" đ");
 
         byte[] picture = productDetail.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
@@ -71,6 +78,34 @@ public class ProductDetailActivity extends AppCompatActivity {
                 backToShopIntent.putExtra("shopName",productDetail.getShopName());
                 startActivity(backToShopIntent);
                 finish();
+            }
+        });
+
+        edittextQuantityProduct.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.length()!=0){
+                    if(charSequence.toString().trim().matches("\\d+(?:\\.\\d+)?")) {
+                        int quantity = Integer.parseInt(charSequence.toString().trim());
+                        float price = productDetail.getPrice();
+                        float totalPrice = (float) price * quantity;
+                        textviewProductTotalPrice.setText(Float.toString(totalPrice)+"đ");
+                    }
+                    else {
+                        Toast.makeText(ProductDetailActivity.this, "You must enter a number", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
@@ -109,7 +144,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         btnDecreaseQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String currentQuantity = textviewQuantityProduct.getText().toString().trim();
+                String currentQuantity = edittextQuantityProduct.getText().toString().trim();
                 int quantity = Integer.parseInt(currentQuantity);
                 quantity --;
                 if(quantity < 1){
@@ -119,7 +154,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 float price = productDetail.getPrice();
                 float totalPrice = (float) price * quantity;
 
-                textviewQuantityProduct.setText(Integer.toString(quantity));
+                edittextQuantityProduct.setText(Integer.toString(quantity));
                 textviewProductTotalPrice.setText(Float.toString(totalPrice) + " đ");
 
             }
@@ -128,7 +163,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         btnIncreaseQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String currentQuantity = textviewQuantityProduct.getText().toString().trim();
+                String currentQuantity = edittextQuantityProduct.getText().toString().trim();
                 int quantity = Integer.parseInt(currentQuantity);
                 quantity++;
                 int quantityInStock = productDetail.getQuantity();
@@ -139,7 +174,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 float price = productDetail.getPrice();
                 float totalPrice = (float) price * quantity;
 
-                textviewQuantityProduct.setText(Integer.toString(quantity));
+                edittextQuantityProduct.setText(Integer.toString(quantity));
                 textviewProductTotalPrice.setText(Float.toString(totalPrice) + " đ");
             }
         });
@@ -154,10 +189,10 @@ public class ProductDetailActivity extends AppCompatActivity {
                         "' AND ProductId = "+ id +"");
 
                 if(!checkProduct.moveToFirst()){
-                    MainActivity.db.InsertCart(username,id,Integer.parseInt(textviewQuantityProduct.getText().toString().trim()));
+                    MainActivity.db.InsertCart(username,id,Integer.parseInt(edittextQuantityProduct.getText().toString().trim()));
                 }
                 else{
-                    int currentQuantity = Integer.parseInt(textviewQuantityProduct.getText().toString().trim());
+                    int currentQuantity = Integer.parseInt(edittextQuantityProduct.getText().toString().trim());
                     int newQuantity = currentQuantity + checkProduct.getInt(3);
                     MainActivity.db.QueryData("Update Cart SET Quantity = "+newQuantity+" WHERE UserName = '"+username+
                             "' AND ProductId = "+ id +"");

@@ -20,11 +20,11 @@ import hcmute.edu.vn.nhom20.foodie.R;
 import hcmute.edu.vn.nhom20.foodie.model.Shop;
 
 public class ShopAdapter extends BaseAdapter {
-    private HomeActivity context;
+    private Context context;
     private int layout;
     private List<Shop> lstShop;
 
-    public ShopAdapter(HomeActivity context, int layout, List<Shop> lstShop) {
+    public ShopAdapter(Context context, int layout, List<Shop> lstShop) {
         this.context = context;
         this.layout = layout;
         this.lstShop = lstShop;

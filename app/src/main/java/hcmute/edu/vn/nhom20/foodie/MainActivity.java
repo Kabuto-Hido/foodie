@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), ShopName NVARCHAR(200) NOT NULL REFERENCES Shop(Name))");
 
         //Table Order
-        db.QueryData("DROP TABLE OrderDetail");
-        db.QueryData("DROP TABLE Orders");
+        //db.QueryData("DROP TABLE OrderDetail");
+        //db.QueryData("DROP TABLE Orders");
         db.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), OrderPrice FLOAT," +
                 "DeliveryPrice FLOAT, TotalPrice FLOAT)");

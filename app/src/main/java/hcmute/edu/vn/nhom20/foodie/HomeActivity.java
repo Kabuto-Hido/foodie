@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import hcmute.edu.vn.nhom20.foodie.adapter.ShopAdapter;
 import hcmute.edu.vn.nhom20.foodie.model.Shop;
@@ -65,6 +66,29 @@ public class HomeActivity extends AppCompatActivity {
                 intent.putExtra("shopName",shopArrayList.get(i).getName());
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<Shop> foundShopList = new ArrayList<Shop>();
+
+                for(Shop s: shopArrayList){
+                    if(s.getName().toLowerCase().contains(newText.toLowerCase())){
+                        foundShopList.add(s);
+                    }
+                }
+
+                ShopAdapter shopAdapter = new ShopAdapter(HomeActivity.this,R.layout.shop_row,foundShopList);
+                gvShop.setAdapter(shopAdapter);
+
+                return false;
             }
         });
 
