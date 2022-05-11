@@ -14,8 +14,9 @@
         android:layout_marginStart="15sp"
         android:layout_marginTop="15sp"
         android:layout_marginEnd="15sp"
+        app:iconifiedByDefault="false"
         android:autofillHints="name"
-        android:background="@drawable/custom_input"
+        android:background="@drawable/searchdesign"
         app:queryHint="Shop name"
         android:contextClickable="true"/>
 
@@ -57,6 +58,8 @@
         android:layout_marginEnd="20sp"
         android:layout_marginBottom="120sp"
         android:horizontalSpacing="20sp"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@null"
         android:numColumns="2"
         android:verticalSpacing="30sp" />
 

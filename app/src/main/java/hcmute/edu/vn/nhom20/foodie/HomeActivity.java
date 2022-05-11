@@ -72,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                searchView.clearFocus();
                 return false;
             }
 
@@ -87,7 +88,6 @@ public class HomeActivity extends AppCompatActivity {
 
                 ShopAdapter shopAdapter = new ShopAdapter(HomeActivity.this,R.layout.shop_row,foundShopList);
                 gvShop.setAdapter(shopAdapter);
-
                 return false;
             }
         });
@@ -117,4 +117,9 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        searchView.clearFocus();
+    }
 }

@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.CursorWindow;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -16,6 +17,7 @@ import android.widget.Button;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
@@ -70,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 "Quantity INTEGER NOT NULL, UnitPrice FLOAT)");
 
         //insert shop
-
         //db.QueryData("DELETE FROM Shop WHERE Name = 'Uber Eats'");
         //db.InsertShop("Fresh Menu",null," No6, 14th main Road, Indiqube Delta","08040424242");
 
@@ -87,6 +88,15 @@ public class MainActivity extends AppCompatActivity {
 //        db.InsertAccount("Kabuto","123456","ngobuituananh@gmail.com","Admin");
 //        db.QueryData("DELETE FROM Account WHERE Username = 'Tuan Anh'");
 //        db.InsertAccount("Tuan Anh","tuananh123","tuananh@gmail.com","Customer");
+
+        //set new size
+        try {
+            Field field = CursorWindow.class.getDeclaredField("sCursorWindowSize");
+            field.setAccessible(true);
+            field.set(null, 100 * 1024 * 1024); //the 100MB is the new size
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         btnGetStart.setOnClickListener(new View.OnClickListener() {
             @Override
