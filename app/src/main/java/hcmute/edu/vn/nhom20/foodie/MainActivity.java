@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), ShopName NVARCHAR(200) NOT NULL REFERENCES Shop(Name))");
 
         //Table Order
-        //db.QueryData("DROP TABLE OrderDetail");
-        //db.QueryData("DROP TABLE Orders");
+//        db.QueryData("DROP TABLE OrderDetail");
+//        db.QueryData("DROP TABLE Orders");
         db.QueryData("CREATE TABLE IF NOT EXISTS Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "UserName NVARCHAR(200) NOT NULL REFERENCES Account(Username), OrderPrice FLOAT," +
                 "DeliveryPrice FLOAT, TotalPrice FLOAT)");
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 //        db.QueryData("DELETE FROM Account WHERE Username = 'Kabuto'");
 //        db.InsertAccount("Kabuto","123456","ngobuituananh@gmail.com","Admin");
 //        db.QueryData("DELETE FROM Account WHERE Username = 'Tuan Anh'");
-//        db.InsertAccount("Tuan Anh","tuananh123","tuananh@gmail.com","Customer");
+//        db.InsertAccount("TuanAnh","tuananh123","tuananh@gmail.com","Customer");
 
         //set new size
         try {

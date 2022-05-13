@@ -117,9 +117,4 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        searchView.clearFocus();
-    }
 }

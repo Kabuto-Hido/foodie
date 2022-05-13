@@ -115,7 +115,7 @@ public class CartActivity extends AppCompatActivity {
                                 MainActivity.db.InsertOrderDetail(cart.getIdProduct(),idOrder,cart.getQuantity(),unitPriceProductInCart);
                             }
 
-                            //MainActivity.db.QueryData("UPDATE Orders SET OrderPrice = "+orderPrice+" WHERE Id = "+idOrder+"");
+                            MainActivity.db.QueryData("UPDATE Orders SET OrderPrice = "+orderPrice+" WHERE Id = "+idOrder+"");
 
                             Intent payOnDelivery = new Intent(CartActivity.this, PayOnDeliverActivity.class);
                             payOnDelivery.putExtra("orderId",idOrder);

@@ -86,16 +86,10 @@ public class EditDrinkActivity extends AppCompatActivity {
             public void onClick(View view) {
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageEditDrink.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
-                byte[] img;
-                if(bitmap != null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    img = byteArrayOutputStream.toByteArray();
 
-                }
-                else {
-                    img = null;
-                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] img = byteArrayOutputStream.toByteArray();
 
                 String name = editTextEditDrinkName.getText().toString().trim();
                 Float newPrice = Float.parseFloat(editTextEditDrinkPrice.getText().toString().trim());

@@ -72,13 +72,12 @@ public class AddShopActivity extends AppCompatActivity {
         btnConfirmAddShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                byte[] img;
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageShop.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
 
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                img = byteArrayOutputStream.toByteArray();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] img = byteArrayOutputStream.toByteArray();
 
                 String name = editTextShopName.getText().toString().trim();
                 String address = editTextShopAddress.getText().toString().trim();
@@ -96,6 +95,7 @@ public class AddShopActivity extends AppCompatActivity {
                     startActivity(new Intent(AddShopActivity.this, AdminHomeActivity.class));
                     finish();
                 }
+
             }
         });
 

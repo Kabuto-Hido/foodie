@@ -91,6 +91,7 @@ public class PayOnDeliverActivity extends AppCompatActivity {
                     Float totalPrice = (float) Float.parseFloat(textviewOrderPriceDeliver.getText().toString().trim()) +
                             15000f;
                     textviewTotalPriceDeliver.setText(Float.toString(totalPrice));
+                    editTextAddressDeliver.clearFocus();
                 }
             }
         });
@@ -115,7 +116,7 @@ public class PayOnDeliverActivity extends AppCompatActivity {
 
     private void getAddress(){
         Account dataAccount =MainActivity.db.getAllAccountData(user);
-        if(dataAccount.getAddress().equals("null")){
+        if(dataAccount.getAddress().equals(null)){
             editTextAddressDeliver.setText("");
         }
         else{

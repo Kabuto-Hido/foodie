@@ -91,7 +91,6 @@ public class EditShopActivity extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 img = byteArrayOutputStream.toByteArray();
 
-
                 String address = editTextEditShopAddress.getText().toString().trim();
                 String phone = editTextEditShopPhone.getText().toString().trim();
 

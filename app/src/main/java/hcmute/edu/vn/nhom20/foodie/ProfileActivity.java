@@ -57,23 +57,19 @@ public class ProfileActivity extends AppCompatActivity {
         Account acc = MainActivity.db.getAllAccountData(username);
         editTextUserNameEditProfile.setText(username);
         editTextEmailEditProfile.setText(acc.getEmail());
-        if(acc.getPhone().equals("null")){
-            editTextPhoneNumberEditProfile.setText("");
-        }
-        else{
-            editTextPhoneNumberEditProfile.setText(acc.getPhone());
-        }
-        if(acc.getAddress().equals("null")){
-            editTextAddressEditProfile.setText("");
-        }
-        else{
-            editTextAddressEditProfile.setText(acc.getAddress());
-        }
+
+        editTextPhoneNumberEditProfile.setText(acc.getPhone());
+        editTextAddressEditProfile.setText(acc.getAddress());
 
         byte[] picture = acc.getImage();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
-        imageUser.setImageBitmap(bitmap);
-        imageUser.setScaleType(ImageView.ScaleType.FIT_XY);
+        if(picture!=null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
+            imageUser.setImageBitmap(bitmap);
+            imageUser.setScaleType(ImageView.ScaleType.FIT_XY);
+        }
+        else {
+            imageUser.setImageResource(R.drawable.icon_image_not_found);
+        }
 
         imageBackPageEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override

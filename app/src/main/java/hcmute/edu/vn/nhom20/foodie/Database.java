@@ -175,6 +175,18 @@ public class Database extends SQLiteOpenHelper {
         String sql = "SELECT * FROM Account WHERE Username = '"+userName+"'";
         Cursor data = sqlDB.rawQuery(sql,null);
         if (data .moveToFirst()) {
+            if(data.getString(2) == null){
+                String sql1 = "UPDATE Account SET Phone = 'not yet' WHERE Username = '"+userName+"'";
+                sqlDB.execSQL(sql1);
+            }
+            if(data.getString(4) == null){
+                String sql2 = "UPDATE Account SET Address = 'not yet' WHERE Username = '"+userName+"'";
+                sqlDB.execSQL(sql2);
+            }
+            if(data.getBlob(5) == null){
+                String sql2 = "UPDATE Account SET Image = null WHERE Username = '"+userName+"'";
+                sqlDB.execSQL(sql2);
+            }
             account = new Account(userName, data.getString(1),
                     data.getString(2),data.getString(3),data.getString(4),data.getBlob(5),data.getString(6));
         }
