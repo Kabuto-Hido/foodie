@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -72,16 +73,9 @@ public class AddDrinkActivity extends AppCompatActivity {
 
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) btnUploadImageDrink.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
-                byte[] img;
-                if(bitmap != null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    img = byteArrayOutputStream.toByteArray();
-
-                }
-                else {
-                    img = null;
-                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] img = byteArrayOutputStream.toByteArray();
 
                 String name = editTextDrinkName.getText().toString().trim();
                 Float drinkPrice = Float.parseFloat(editTextDrinkPrice.getText().toString().trim());
@@ -143,5 +137,11 @@ public class AddDrinkActivity extends AppCompatActivity {
             }
         }
     });
+    private Bitmap drawableToBitmap(Drawable drawable)
+    {
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+        return Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
+    }
 
 }

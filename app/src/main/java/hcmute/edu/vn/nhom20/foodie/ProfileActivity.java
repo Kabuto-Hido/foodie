@@ -16,6 +16,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -66,9 +67,11 @@ public class ProfileActivity extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeByteArray(picture,0,picture.length);
             imageUser.setImageBitmap(bitmap);
             imageUser.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageUser.setTag(R.drawable.icon_upload);
         }
         else {
             imageUser.setImageResource(R.drawable.icon_image_not_found);
+            imageUser.setTag(R.drawable.icon_image_not_found);
         }
 
         imageBackPageEditProfile.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +96,15 @@ public class ProfileActivity extends AppCompatActivity {
         btnConfirmEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) imageUser.getDrawable();
-                Bitmap bitmap = bitmapDrawable.getBitmap();
+                Bitmap bitmap;
+
+                if((int)imageUser.getTag() == R.drawable.icon_image_not_found){
+                    bitmap = drawableToBitamp(imageUser.getDrawable());
+                }
+                else {
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) imageUser.getDrawable();
+                    bitmap = bitmapDrawable.getBitmap();
+                }
                 byte[] img;
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -159,6 +169,12 @@ public class ProfileActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+    private Bitmap drawableToBitamp(Drawable drawable)
+    {
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+        return Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
     }
 
 }
